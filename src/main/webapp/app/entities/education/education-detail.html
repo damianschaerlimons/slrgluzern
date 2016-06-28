@@ -1,0 +1,30 @@
+
+<div>
+    <h2><span translate="slrgApp.education.detail.title">Education</span> {{vm.education.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="slrgApp.education.note">Note</span></dt>
+        <dd>
+            <span>{{vm.education.note}}</span>
+        </dd>
+        <dt><span translate="slrgApp.education.valid">Valid</span></dt>
+        <dd>
+            <span>{{vm.education.valid | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span translate="slrgApp.education.member">Member</span></dt>
+        <dd>
+            <a ui-sref="member-detail({id:vm.education.memberId})">{{vm.education.memberId}}</a>
+        </dd>
+        <dt><span translate="slrgApp.education.educationtype">Educationtype</span></dt>
+        <dd>
+            <a ui-sref="educationtype-detail({id:vm.education.educationtypeId})">{{vm.education.educationtypeName}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

@@ -1,0 +1,209 @@
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-10"><h2><span >{{vm.member.name}}</span> ({{vm.member.id}})</h2></div>
+        <div class="col-md-2">
+            <button type="submit"
+                    onclick="window.print()"
+                    class="btn btn-info margin-top20">
+                <span class="" ></span>&nbsp;<span translate="entity.action.print">Ausdrucken</span>
+            </button>
+        </div>
+    </div>
+
+    <hr>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <div class="col-md-6">
+        <dl class="dl-horizontal jh-entity-details">
+            <dt><span translate="slrgApp.member.name">Name</span></dt>
+            <dd>
+                <span>{{vm.member.name}}</span>
+            </dd>
+            <dt><span translate="slrgApp.member.lastname">Lastname</span></dt>
+            <dd>
+                <span>{{vm.member.lastname}}</span>
+            </dd>
+            <dt><span translate="slrgApp.member.birthday">Birthday</span></dt>
+            <dd>
+                <span>{{vm.member.birthday | date:'mediumDate'}}</span>
+            </dd>
+            <dt><span translate="slrgApp.member.brevetnr">Brevetnr</span></dt>
+            <dd>
+                <span>{{vm.member.brevetnr}}</span>
+            </dd>
+            <dt><span translate="slrgApp.member.adress">Adress</span></dt>
+            <dd>
+                <span>{{vm.member.adress}}</span>
+            </dd>
+            <dt><span translate="slrgApp.member.plz">Plz</span></dt>
+            <dd>
+                <span>{{vm.member.plz}}</span>
+            </dd>
+            <dt><span translate="slrgApp.member.place">Place</span></dt>
+            <dd>
+                <span>{{vm.member.place}}</span>
+            </dd>
+        </dl>
+    </div>
+
+    <div class="col-md-6">
+        <dl class="dl-horizontal jh-entity-details">
+            <dt><span translate="slrgApp.member.aquateam">Aquateam</span></dt>
+            <dd>
+                <span ng-class="vm.member.aquateam ? 'glyphicon glyphicon-ok' : 'glyphicon glyphicon-remove'" ></span>
+            </dd>
+            <dt><span translate="slrgApp.member.skipper">Skipper</span></dt>
+            <dd>
+                <span ng-class="vm.member.skipper ? 'glyphicon glyphicon-ok' : 'glyphicon glyphicon-remove'" ></span>
+            </dd>
+            <dt><span translate="slrgApp.member.boatdriver">Boatdriver</span></dt>
+            <dd>
+                <span ng-class="vm.member.boatdriver ? 'glyphicon glyphicon-ok' : 'glyphicon glyphicon-remove'"></span>
+            </dd>
+            <dt><span translate="slrgApp.member.rescue">Rescue</span></dt>
+            <dd>
+                <span  ng-class="vm.member.rescue ? 'glyphicon glyphicon-ok' : 'glyphicon glyphicon-remove'"></span>
+            </dd>
+            <dt><span translate="slrgApp.member.phone">Phone</span></dt>
+            <dd>
+                <span>{{vm.member.phone}}</span>
+            </dd>
+            <dt><span translate="slrgApp.member.email">Email</span></dt>
+            <dd>
+                <span>{{vm.member.email}}</span>
+            </dd>
+            <dt><span translate="slrgApp.member.membertype">Membertype</span></dt>
+            <dd>
+                <a ui-sref="membertype-detail({id:vm.member.membertypeId})">{{vm.member.membertypeName}}</a>
+            </dd>
+        </dl>
+    </div>
+
+<div class="">
+    <h3><span >Education</span></h3>
+
+    <table class="jh-table table table-striped">
+        <thead>
+        <tr>
+            <th><span translate="global.field.id">ID</span></th>
+            <th><span translate="slrgApp.education.note">Note</span></th>
+            <th><span translate="slrgApp.education.valid">Valid</span></th>
+            <th><span translate="slrgApp.education.educationtype">Educationtype</span></th>
+            <!--<th></th>-->
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="education in vm.educations track by education.id">
+            <td><a ui-sref="education-detail({id:education.id})">{{education.id}}</a></td>
+            <td>{{education.note}}</td>
+            <td>{{education.valid | date:'mediumDate'}}</td>
+
+            <td>
+                <a ui-sref="educationtype-detail({id:education.educationtypeId})">{{education.educationtypeName}}</a>
+            </td>
+            <!--<td class="text-right">-->
+            <!--<div class="btn-group flex-btn-group-container">-->
+            <!--<button type="submit"-->
+            <!--ui-sref="education-detail({id:education.id})"-->
+            <!--class="btn btn-info btn-sm">-->
+            <!--<span class="glyphicon glyphicon-eye-open"></span>-->
+            <!--<span class="hidden-xs hidden-sm" translate="entity.action.view"></span>-->
+            <!--</button>-->
+            <!--<button type="submit"-->
+            <!--ui-sref="education.edit({id:education.id})"-->
+            <!--class="btn btn-primary btn-sm">-->
+            <!--<span class="glyphicon glyphicon-pencil"></span>-->
+            <!--<span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>-->
+            <!--</button>-->
+            <!--<button type="submit"-->
+            <!--ui-sref="education.delete({id:education.id})"-->
+            <!--class="btn btn-danger btn-sm">-->
+            <!--<span class="glyphicon glyphicon-remove-circle"></span>-->
+            <!--<span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>-->
+            <!--</button>-->
+            <!--</div>-->
+            <!--</td>-->
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+
+    <div class="">
+        <h3><span >Appearances</span></h3>
+
+        <div class="table-responsive">
+            <table class="jh-table table table-striped">
+                <thead>
+                <tr>
+                    <th><span translate="global.field.id">ID</span></th>
+                    <th><span translate="slrgApp.appearances.name">Name</span></th>
+                    <th><span translate="slrgApp.appearances.valid">Valid</span></th>
+                    <th><span translate="slrgApp.appearances.hours">Hours</span></th>
+                    <th><span translate="slrgApp.appearances.appearancesType">Appearances Type</span></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="appearances in vm.appearances track by appearances.id">
+                    <td><a ui-sref="appearances-detail({id:appearances.id})">{{appearances.id}}</a></td>
+                    <td>{{appearances.name}}</td>
+                    <td>{{appearances.valid | date:'mediumDate'}}</td>
+                    <td>{{appearances.hours}}</td>
+
+                    <td>
+                        <a ui-sref="appearances-type-detail({id:appearances.appearancesTypeId})">{{appearances.appearancesTypeName}}</a>
+                    </td>
+
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="">
+        <h3><span >Weitere Ausbildungen</span></h3>
+        <div class="table-responsive">
+            <table class="jh-table table table-striped">
+                <thead>
+                <tr>
+                    <th ><span translate="global.field.id">ID</span> </th>
+                    <th ><span translate="slrgApp.furtherEducation.name">Name</span> </th>
+                    <th ><span translate="slrgApp.furtherEducation.description">Description</span> </th>
+                    <th ><span translate="slrgApp.furtherEducation.niveau">Niveau</span> </th>
+                    <th ><span translate="slrgApp.furtherEducation.date">Date</span> </th>
+                    <th ><span translate="slrgApp.furtherEducation.teacher">Teacher</span> </th>
+                </tr>
+                </thead>
+                <tbody infinite-scroll="vm.loadPage(vm.page + 1)" infinite-scroll-disabled="vm.page >= vm.links['last']">
+                <tr ng-repeat="furtherEducation in vm.furtherEducations track by furtherEducation.id">
+                    <td><a ui-sref="further-education-detail({id:furtherEducation.id})">{{furtherEducation.id}}</a></td>
+                    <td>{{furtherEducation.name}}</td>
+                    <td>{{furtherEducation.description}}</td>
+                    <td>{{furtherEducation.niveau}}</td>
+                    <td>{{furtherEducation.date | date:'mediumDate'}}</td>
+
+                    <td>
+                        <a ui-sref="member-detail({id:furtherEducation.teacherId})">{{furtherEducation.teacherName}}</a>
+                    </td>
+
+                </tr>
+                </tbody>
+            </table>
+        </div>
+</div>
+
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+    <button type="submit"
+            ui-sref="member.edit({id:member.id})"
+            class="btn btn-primary btn-sm">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+    </button>
+</div>

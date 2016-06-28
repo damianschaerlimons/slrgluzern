@@ -1,0 +1,35 @@
+{
+    "slrgApp": {
+        "member" : {
+            "home": {
+                "title": "Members",
+                "createLabel": "Create a new Member",
+                "createOrEditLabel": "Create or edit a Member",
+                "search": "Search for Member"
+            },
+            "created": "A new Member is created with identifier {{ param }}",
+            "updated": "A Member is updated with identifier {{ param }}",
+            "deleted": "A Member is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Member {{ id }}?"
+            },
+            "detail": {
+                "title": "Member"
+            },
+            "name": "Name",
+            "lastname": "Lastname",
+            "birthday": "Birthday",
+            "brevetnr": "Brevetnr",
+            "adress": "Adress",
+            "plz": "Plz",
+            "place": "Place",
+            "aquateam": "Aquateam",
+            "skipper": "Skipper",
+            "boatdriver": "Boatdriver",
+            "rescue": "Rescue",
+            "phone": "Phone",
+            "email": "Email",
+            "membertype": "Membertype"
+        }
+    }
+}

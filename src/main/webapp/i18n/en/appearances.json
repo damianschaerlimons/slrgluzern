@@ -1,0 +1,26 @@
+{
+    "slrgApp": {
+        "appearances" : {
+            "home": {
+                "title": "Appearances",
+                "createLabel": "Create a new Appearances",
+                "createOrEditLabel": "Create or edit a Appearances",
+                "search": "Search for Appearances"
+            },
+            "created": "A new Appearances is created with identifier {{ param }}",
+            "updated": "A Appearances is updated with identifier {{ param }}",
+            "deleted": "A Appearances is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Appearances {{ id }}?"
+            },
+            "detail": {
+                "title": "Appearances"
+            },
+            "name": "Name",
+            "valid": "Valid",
+            "hours": "Hours",
+            "member": "Member",
+            "appearancesType": "Appearances Type"
+        }
+    }
+}

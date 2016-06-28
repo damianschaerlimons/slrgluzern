@@ -1,0 +1,16 @@
+version: '2'
+services:
+    slrg-app:
+        image: slrg
+        external_links:
+            - slrg-postgresql:postgresql
+        environment:
+            - SPRING_PROFILES_ACTIVE=prod
+            - SPRING_DATASOURCE_URL=jdbc:postgresql://postgresql:5432/slrg
+            - JHIPSTER_SLEEP=10 # gives time for the database to boot before the application
+        ports:
+            - 8080:8080
+    slrg-postgresql:
+        extends:
+            file: postgresql.yml
+            service: slrg-postgresql

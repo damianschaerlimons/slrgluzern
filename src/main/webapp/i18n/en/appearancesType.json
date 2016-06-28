@@ -1,0 +1,22 @@
+{
+    "slrgApp": {
+        "appearancesType" : {
+            "home": {
+                "title": "Appearances Types",
+                "createLabel": "Create a new Appearances Type",
+                "createOrEditLabel": "Create or edit a Appearances Type",
+                "search": "Search for Appearances Type"
+            },
+            "created": "A new Appearances Type is created with identifier {{ param }}",
+            "updated": "A Appearances Type is updated with identifier {{ param }}",
+            "deleted": "A Appearances Type is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Appearances Type {{ id }}?"
+            },
+            "detail": {
+                "title": "Appearances Type"
+            },
+            "name": "Name"
+        }
+    }
+}

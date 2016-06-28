@@ -1,0 +1,71 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "membertype",
+            "otherEntityName": "membertype",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": []
+        },
+        {
+            "fieldName": "lastname",
+            "fieldType": "String",
+            "fieldValidateRules": []
+        },
+        {
+            "fieldName": "birthday",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "brevetnr",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "adress",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "plz",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "place",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "aquateam",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "skipper",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "boatdriver",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "rescue",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "phone",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "email",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20160622051110",
+    "dto": "mapstruct",
+    "service": "serviceClass",
+    "entityTableName": "member",
+    "pagination": "infinite-scroll"
+}

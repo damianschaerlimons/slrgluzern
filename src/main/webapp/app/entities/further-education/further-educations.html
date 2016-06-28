@@ -1,0 +1,70 @@
+<div>
+    <h2 translate="slrgApp.furtherEducation.home.title">Further Educations</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="further-education.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  translate="slrgApp.furtherEducation.home.createLabel">
+                        Create new Further Education
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.reset()">
+                    <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="name"><span translate="slrgApp.furtherEducation.name">Name</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="description"><span translate="slrgApp.furtherEducation.description">Description</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="niveau"><span translate="slrgApp.furtherEducation.niveau">Niveau</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="date"><span translate="slrgApp.furtherEducation.date">Date</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="memberName"><span translate="slrgApp.furtherEducation.member">Member</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="teacherName"><span translate="slrgApp.furtherEducation.teacher">Teacher</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll="vm.loadPage(vm.page + 1)" infinite-scroll-disabled="vm.page >= vm.links['last']">
+                <tr ng-repeat="furtherEducation in vm.furtherEducations track by furtherEducation.id">
+                    <td><a ui-sref="further-education-detail({id:furtherEducation.id})">{{furtherEducation.id}}</a></td>
+                    <td>{{furtherEducation.name}}</td>
+                    <td>{{furtherEducation.description}}</td>
+                    <td>{{furtherEducation.niveau}}</td>
+                        <td>{{furtherEducation.date | date:'mediumDate'}}</td>
+                    <td>
+                        <a ui-sref="member-detail({id:furtherEducation.memberId})">{{furtherEducation.memberName}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="member-detail({id:furtherEducation.teacherId})">{{furtherEducation.teacherName}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="further-education-detail({id:furtherEducation.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="further-education.edit({id:furtherEducation.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="further-education.delete({id:furtherEducation.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

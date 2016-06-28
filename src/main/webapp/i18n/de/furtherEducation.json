@@ -1,0 +1,27 @@
+{
+    "slrgApp": {
+        "furtherEducation" : {
+            "home": {
+                "title": "Further Educations",
+                "createLabel": "Further Education erstellen",
+                "createOrEditLabel": "Further Education erstellen oder bearbeiten",
+                "search": "Suche nach Further Education"
+            },
+            "created": "Further Education erstellt mit ID {{ param }}",
+            "updated": "Further Education aktualisiert mit ID {{ param }}",
+            "deleted": "Further Education gelöscht mit ID {{ param }}",
+            "delete": {
+                "question": "Soll Further Education {{ id }} wirklich dauerhaft gelöscht werden?"
+            },
+            "detail": {
+                "title": "Further Education"
+            },
+            "name": "Name",
+            "description": "Description",
+            "niveau": "Niveau",
+            "date": "Date",
+            "member": "Member",
+            "teacher": "Teacher"
+        }
+    }
+}

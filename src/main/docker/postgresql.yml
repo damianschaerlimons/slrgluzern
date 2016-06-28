@@ -1,0 +1,12 @@
+version: '2'
+services:
+    slrg-postgresql:
+        container_name: slrg-postgresql
+        image: postgres:9.5.2
+        # volumes:
+        #     - ~/volumes/jhipster/slrg/postgresql/:/var/lib/postgresql/
+        environment:
+            - POSTGRES_USER=slrg
+            - POSTGRES_PASSWORD=
+        ports:
+            - 5432:5432

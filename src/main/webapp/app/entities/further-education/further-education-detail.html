@@ -1,0 +1,38 @@
+
+<div>
+    <h2><span translate="slrgApp.furtherEducation.detail.title">Further Education</span> {{vm.furtherEducation.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="slrgApp.furtherEducation.name">Name</span></dt>
+        <dd>
+            <span>{{vm.furtherEducation.name}}</span>
+        </dd>
+        <dt><span translate="slrgApp.furtherEducation.description">Description</span></dt>
+        <dd>
+            <span>{{vm.furtherEducation.description}}</span>
+        </dd>
+        <dt><span translate="slrgApp.furtherEducation.niveau">Niveau</span></dt>
+        <dd>
+            <span>{{vm.furtherEducation.niveau}}</span>
+        </dd>
+        <dt><span translate="slrgApp.furtherEducation.date">Date</span></dt>
+        <dd>
+            <span>{{vm.furtherEducation.date | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span translate="slrgApp.furtherEducation.member">Member</span></dt>
+        <dd>
+            <a ui-sref="member-detail({id:vm.furtherEducation.memberId})">{{vm.furtherEducation.memberName}}</a>
+        </dd>
+        <dt><span translate="slrgApp.furtherEducation.teacher">Teacher</span></dt>
+        <dd>
+            <a ui-sref="member-detail({id:vm.furtherEducation.teacherId})">{{vm.furtherEducation.teacherName}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

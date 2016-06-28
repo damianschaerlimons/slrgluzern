@@ -1,0 +1,34 @@
+
+<div>
+    <h2><span translate="slrgApp.appearances.detail.title">Appearances</span> {{vm.appearances.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="slrgApp.appearances.name">Name</span></dt>
+        <dd>
+            <span>{{vm.appearances.name}}</span>
+        </dd>
+        <dt><span translate="slrgApp.appearances.valid">Valid</span></dt>
+        <dd>
+            <span>{{vm.appearances.valid | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span translate="slrgApp.appearances.hours">Hours</span></dt>
+        <dd>
+            <span>{{vm.appearances.hours}}</span>
+        </dd>
+        <dt><span translate="slrgApp.appearances.member">Member</span></dt>
+        <dd>
+            <a ui-sref="member-detail({id:vm.appearances.memberId})">{{vm.appearances.memberId}}</a>
+        </dd>
+        <dt><span translate="slrgApp.appearances.appearancesType">Appearances Type</span></dt>
+        <dd>
+            <a ui-sref="appearances-type-detail({id:vm.appearances.appearancesTypeId})">{{vm.appearances.appearancesTypeName}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

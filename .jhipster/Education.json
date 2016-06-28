@@ -1,0 +1,31 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "member",
+            "otherEntityName": "member",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "educationtype",
+            "otherEntityName": "educationtype",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "note",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "valid",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "changelogDate": "20160622052517",
+    "dto": "mapstruct",
+    "service": "serviceClass",
+    "entityTableName": "education",
+    "pagination": "no"
+}

@@ -1,0 +1,35 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "member",
+            "otherEntityName": "member",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "appearancesType",
+            "otherEntityName": "appearancesType",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "valid",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "hours",
+            "fieldType": "Integer"
+        }
+    ],
+    "changelogDate": "20160622160035",
+    "dto": "mapstruct",
+    "service": "serviceClass",
+    "entityTableName": "appearances",
+    "pagination": "no"
+}

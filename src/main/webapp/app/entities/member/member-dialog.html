@@ -1,0 +1,114 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myMemberLabel" translate="slrgApp.member.home.createOrEditLabel">Create or edit a Member</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.member.id">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.member.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="slrgApp.member.name" for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                    ng-model="vm.member.name"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="slrgApp.member.lastname" for="field_lastname">Lastname</label>
+            <input type="text" class="form-control" name="lastname" id="field_lastname"
+                    ng-model="vm.member.lastname"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="slrgApp.member.birthday" for="field_birthday">Birthday</label>
+                <div class="input-group">
+                    <input id="field_birthday" type="text" class="form-control" name="birthday" uib-datepicker-popup="{{dateformat}}" ng-model="vm.member.birthday" is-open="vm.datePickerOpenStatus.birthday"
+                    />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('birthday')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="slrgApp.member.brevetnr" for="field_brevetnr">Brevetnr</label>
+            <input type="number" class="form-control" name="brevetnr" id="field_brevetnr"
+                    ng-model="vm.member.brevetnr"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="slrgApp.member.adress" for="field_adress">Adress</label>
+            <input type="text" class="form-control" name="adress" id="field_adress"
+                    ng-model="vm.member.adress"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="slrgApp.member.plz" for="field_plz">Plz</label>
+            <input type="number" class="form-control" name="plz" id="field_plz"
+                    ng-model="vm.member.plz"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="slrgApp.member.place" for="field_place">Place</label>
+            <input type="text" class="form-control" name="place" id="field_place"
+                    ng-model="vm.member.place"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="slrgApp.member.aquateam" for="field_aquateam">Aquateam</label>
+            <input type="checkbox" class="form-control" name="aquateam" id="field_aquateam"
+                    ng-model="vm.member.aquateam"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="slrgApp.member.skipper" for="field_skipper">Skipper</label>
+            <input type="checkbox" class="form-control" name="skipper" id="field_skipper"
+                    ng-model="vm.member.skipper"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="slrgApp.member.boatdriver" for="field_boatdriver">Boatdriver</label>
+            <input type="checkbox" class="form-control" name="boatdriver" id="field_boatdriver"
+                    ng-model="vm.member.boatdriver"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="slrgApp.member.rescue" for="field_rescue">Rescue</label>
+            <input type="checkbox" class="form-control" name="rescue" id="field_rescue"
+                    ng-model="vm.member.rescue"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="slrgApp.member.phone" for="field_phone">Phone</label>
+            <input type="text" class="form-control" name="phone" id="field_phone"
+                    ng-model="vm.member.phone"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="slrgApp.member.email" for="field_email">Email</label>
+            <input type="text" class="form-control" name="email" id="field_email"
+                    ng-model="vm.member.email"
+                     />
+        </div>
+
+        <div class="form-group">
+            <label translate="slrgApp.member.membertype" for="field_membertype">Membertype</label>
+            <select class="form-control" id="field_membertype" name="membertype" ng-model="vm.member.membertypeId" ng-options="membertype.id as membertype.name for membertype in vm.membertypes"            >
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

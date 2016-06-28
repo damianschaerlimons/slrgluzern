@@ -1,0 +1,23 @@
+{
+    "slrgApp": {
+        "educationtype" : {
+            "home": {
+                "title": "Educationtypes",
+                "createLabel": "Create a new Educationtype",
+                "createOrEditLabel": "Create or edit a Educationtype",
+                "search": "Search for Educationtype"
+            },
+            "created": "A new Educationtype is created with identifier {{ param }}",
+            "updated": "A Educationtype is updated with identifier {{ param }}",
+            "deleted": "A Educationtype is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Educationtype {{ id }}?"
+            },
+            "detail": {
+                "title": "Educationtype"
+            },
+            "name": "Name",
+            "description": "Description"
+        }
+    }
+}

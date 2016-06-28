@@ -1,0 +1,60 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myAppearancesLabel" translate="slrgApp.appearances.home.createOrEditLabel">Create or edit a Appearances</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.appearances.id">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.appearances.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="slrgApp.appearances.name" for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                    ng-model="vm.appearances.name"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="slrgApp.appearances.valid" for="field_valid">Valid</label>
+                <div class="input-group">
+                    <input id="field_valid" type="text" class="form-control" name="valid" uib-datepicker-popup="{{dateformat}}" ng-model="vm.appearances.valid" is-open="vm.datePickerOpenStatus.valid"
+                    />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('valid')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="slrgApp.appearances.hours" for="field_hours">Hours</label>
+            <input type="number" class="form-control" name="hours" id="field_hours"
+                    ng-model="vm.appearances.hours"
+                     />
+        </div>
+
+        <div class="form-group">
+            <label translate="slrgApp.appearances.member" for="field_member">Member</label>
+            <select class="form-control" id="field_member" name="member" ng-model="vm.appearances.memberId" ng-options="member.id as member.id for member in vm.members"            >
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label translate="slrgApp.appearances.appearancesType" for="field_appearancesType">Appearances Type</label>
+            <select class="form-control" id="field_appearancesType" name="appearancesType" ng-model="vm.appearances.appearancesTypeId" ng-options="appearancesType.id as appearancesType.name for appearancesType in vm.appearancestypes"            >
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

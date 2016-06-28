@@ -1,0 +1,23 @@
+{
+    "slrgApp": {
+        "membertype" : {
+            "home": {
+                "title": "Membertypes",
+                "createLabel": "Membertype erstellen",
+                "createOrEditLabel": "Membertype erstellen oder bearbeiten",
+                "search": "Suche nach Membertype"
+            },
+            "created": "Membertype erstellt mit ID {{ param }}",
+            "updated": "Membertype aktualisiert mit ID {{ param }}",
+            "deleted": "Membertype gelöscht mit ID {{ param }}",
+            "delete": {
+                "question": "Soll Membertype {{ id }} wirklich dauerhaft gelöscht werden?"
+            },
+            "detail": {
+                "title": "Membertype"
+            },
+            "name": "Name",
+            "description": "Description"
+        }
+    }
+}
