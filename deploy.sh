@@ -1,7 +1,7 @@
 ./mvnw -Pprod package
 
-mv target/slrg-0.0.1-SNAPSHOT.war target/slrg.war
+mv target/slrg-0.0.3.war target/slrg.war
 
-scp -r  target/slrg.war ssh slrg@46.101.186.218:/tmp
+scp -r  target/slrg.war ssh root@46.101.103.2:/tmp
 
-#ssh -t slrg@46.101.186.218 'sh /slrg/deploy.sh'
+ssh -t root@46.101.103.2 'sh /var/www/deploy.sh'
