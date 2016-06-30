@@ -65,6 +65,9 @@ public class Member implements Serializable {
     @Column(name = "ownboat")
     private Boolean ownboat;
 
+    @Column(name = "skipperlevel")
+    private String skipperlevel;
+
     @ManyToOne
     private Membertype membertype;
 
@@ -191,6 +194,14 @@ public class Member implements Serializable {
         this.ownboat = ownboat;
     }
 
+    public String getSkipperlevel() {
+        return skipperlevel;
+    }
+
+    public void setSkipperlevel(String skipperlevel) {
+        this.skipperlevel = skipperlevel;
+    }
+
     public Membertype getMembertype() {
         return membertype;
     }
@@ -245,6 +256,7 @@ public class Member implements Serializable {
             ", phone='" + phone + "'" +
             ", email='" + email + "'" +
             ", ownboat='" + ownboat + "'" +
+            ", skipperlevel='" + skipperlevel + "'" +
             '}';
     }
 }

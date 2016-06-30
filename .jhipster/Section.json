@@ -1,0 +1,14 @@
+{
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20160630050219",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "section",
+    "pagination": "no"
+}

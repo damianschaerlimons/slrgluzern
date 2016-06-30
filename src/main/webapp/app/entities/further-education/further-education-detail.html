@@ -22,11 +22,11 @@
         </dd>
         <dt><span translate="slrgApp.furtherEducation.member">Member</span></dt>
         <dd>
-            <a ui-sref="member-detail({id:vm.furtherEducation.memberId})">{{vm.furtherEducation.memberName}}</a>
+            <a ui-sref="member-detail({id:vm.furtherEducation.memberId})">{{vm.furtherEducation.memberName + ' ' + vm.furtherEducation.memberName}}</a>
         </dd>
         <dt><span translate="slrgApp.furtherEducation.teacher">Teacher</span></dt>
         <dd>
-            <a ui-sref="member-detail({id:vm.furtherEducation.teacherId})">{{vm.furtherEducation.teacherName}}</a>
+            <a ui-sref="member-detail({id:vm.furtherEducation.teacherId})">{{vm.furtherEducation.teacherName + ' ' + vm.furtherEducation.teacherLastname}}</a>
         </dd>
     </dl>
 

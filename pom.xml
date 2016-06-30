@@ -573,10 +573,10 @@
                     <changeLogFile>src/main/resources/config/liquibase/master.xml</changeLogFile>
                     <diffChangeLogFile>src/main/resources/config/liquibase/changelog/${maven.build.timestamp}_changelog.xml</diffChangeLogFile>
                     <driver>org.postgresql.Driver</driver>
-                    <url>jdbc:postgresql://localhost:5432/slrg</url>
+                    <url>jdbc:postgresql://localhost:5432/slrgluzern</url>
                     <defaultSchemaName></defaultSchemaName>
                     <username>slrg</username>
-                    <password></password>
+                    <password>slrg2016</password>
                     <referenceUrl>hibernate:spring:ch.slrg.mvp.domain?dialect=org.hibernate.dialect.PostgreSQL82Dialect&amp;hibernate.ejb.naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringNamingStrategy</referenceUrl>
                     <verbose>true</verbose>
                     <logging>debug</logging>

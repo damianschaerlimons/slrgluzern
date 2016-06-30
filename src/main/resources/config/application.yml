@@ -62,7 +62,7 @@ jhipster:
         from: vmp@slrgluzern.ch
     swagger:
         title: SLRG API
-        description: slrg API documentation
+        description: SLRG API documentation
         version: 0.0.1
         termsOfServiceUrl:
         contactName: Damian Schärli

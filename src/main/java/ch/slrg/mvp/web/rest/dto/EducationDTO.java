@@ -20,9 +20,14 @@ public class EducationDTO implements Serializable {
 
 
     private Long memberId;
-    
+
+    private String memberName;
+
+    private String memberLastname;
+
+
     private Long educationtypeId;
-    
+
 
     private String educationtypeName;
 
@@ -71,6 +76,22 @@ public class EducationDTO implements Serializable {
 
     public void setEducationtypeName(String educationtypeName) {
         this.educationtypeName = educationtypeName;
+    }
+
+    public String getMemberName() {
+        return memberName;
+    }
+
+    public void setMemberName(String memberName) {
+        this.memberName = memberName;
+    }
+
+    public String getMemberLastname() {
+        return memberLastname;
+    }
+
+    public void setMemberLastname(String memberLastname) {
+        this.memberLastname = memberLastname;
     }
 
     @Override

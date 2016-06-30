@@ -44,13 +44,13 @@
 
         <div class="form-group">
             <label translate="slrgApp.furtherEducation.member" for="field_member">Member</label>
-            <select class="form-control" id="field_member" name="member" ng-model="vm.furtherEducation.memberId" ng-options="member.id as member.name for member in vm.members"            >
+            <select class="form-control" id="field_member" name="member" ng-model="vm.furtherEducation.memberId" ng-options="member.id as member.name + ' ' + member.lastname for member in vm.members"            >
                 <option value=""></option>
             </select>
         </div>
         <div class="form-group">
             <label translate="slrgApp.furtherEducation.teacher" for="field_teacher">Teacher</label>
-            <select class="form-control" id="field_teacher" name="teacher" ng-model="vm.furtherEducation.teacherId" ng-options="member.id as member.name for member in vm.members"            >
+            <select class="form-control" id="field_teacher" name="teacher" ng-model="vm.furtherEducation.teacherId" ng-options="member.id as member.name +' ' + member.lastname for member in vm.members"            >
                 <option value=""></option>
             </select>
         </div>

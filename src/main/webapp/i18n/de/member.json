@@ -30,6 +30,7 @@
             "phone": "Phone",
             "email": "Email",
             "ownboat": "Ownboat",
+            "skipperlevel": "Skipperlevel",
             "membertype": "Membertype",
             "section": "Section"
         }

@@ -24,14 +24,18 @@ public class FurtherEducationDTO implements Serializable {
 
 
     private Long memberId;
-    
+
+    private String memberLastname;
+
 
     private String memberName;
 
     private Long teacherId;
-    
+
 
     private String teacherName;
+
+    private String teacherLastname;
 
     public Long getId() {
         return id;
@@ -101,6 +105,22 @@ public class FurtherEducationDTO implements Serializable {
 
     public void setTeacherName(String memberName) {
         this.teacherName = memberName;
+    }
+
+    public String getMemberLastname() {
+        return memberLastname;
+    }
+
+    public void setMemberLastname(String memberLastname) {
+        this.memberLastname = memberLastname;
+    }
+
+    public String getTeacherLastname() {
+        return teacherLastname;
+    }
+
+    public void setTeacherLastname(String teacherLastname) {
+        this.teacherLastname = teacherLastname;
     }
 
     @Override

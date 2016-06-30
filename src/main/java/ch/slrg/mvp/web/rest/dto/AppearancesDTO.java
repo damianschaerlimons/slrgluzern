@@ -22,9 +22,14 @@ public class AppearancesDTO implements Serializable {
 
 
     private Long memberId;
-    
+
+    private String memberName;
+
+    private String memberLastname;
+
+
     private Long appearancesTypeId;
-    
+
 
     private String appearancesTypeName;
 
@@ -80,6 +85,22 @@ public class AppearancesDTO implements Serializable {
 
     public void setAppearancesTypeName(String appearancesTypeName) {
         this.appearancesTypeName = appearancesTypeName;
+    }
+
+    public String getMemberName() {
+        return memberName;
+    }
+
+    public void setMemberName(String memberName) {
+        this.memberName = memberName;
+    }
+
+    public String getMemberLastname() {
+        return memberLastname;
+    }
+
+    public void setMemberLastname(String memberLastname) {
+        this.memberLastname = memberLastname;
     }
 
     @Override

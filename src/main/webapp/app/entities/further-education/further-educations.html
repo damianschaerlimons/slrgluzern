@@ -36,10 +36,10 @@
                     <td>{{furtherEducation.niveau}}</td>
                         <td>{{furtherEducation.date | date:'mediumDate'}}</td>
                     <td>
-                        <a ui-sref="member-detail({id:furtherEducation.memberId})">{{furtherEducation.memberName}}</a>
+                        <a ui-sref="member-detail({id:furtherEducation.memberId})">{{furtherEducation.memberName + ' ' + furtherEducation.memberLastname}}</a>
                     </td>
                     <td>
-                        <a ui-sref="member-detail({id:furtherEducation.teacherId})">{{furtherEducation.teacherName}}</a>
+                        <a ui-sref="member-detail({id:furtherEducation.teacherId})">{{furtherEducation.teacherName + ' ' + furtherEducation.teacherLastname}}</a>
                     </td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">

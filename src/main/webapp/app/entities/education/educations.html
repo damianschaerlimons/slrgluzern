@@ -32,7 +32,7 @@
                     <td>{{education.note}}</td>
                         <td>{{education.valid | date:'mediumDate'}}</td>
                     <td>
-                        <a ui-sref="member-detail({id:education.memberId})">{{education.memberId}}</a>
+                        <a ui-sref="member-detail({id:education.memberId})">{{education.memberName +' '+ education.memberLastname}}</a>
                     </td>
                     <td>
                         <a ui-sref="educationtype-detail({id:education.educationtypeId})">{{education.educationtypeName}}</a>

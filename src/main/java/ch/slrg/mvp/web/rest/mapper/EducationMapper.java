@@ -13,6 +13,9 @@ import java.util.List;
 public interface EducationMapper {
 
     @Mapping(source = "member.id", target = "memberId")
+    @Mapping(source = "member.name", target = "memberName")
+    @Mapping(source = "member.lastname", target = "memberLastname")
+
     @Mapping(source = "educationtype.id", target = "educationtypeId")
     @Mapping(source = "educationtype.name", target = "educationtypeName")
     EducationDTO educationToEducationDTO(Education education);

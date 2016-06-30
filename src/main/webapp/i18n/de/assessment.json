@@ -1,0 +1,25 @@
+{
+    "slrgApp": {
+        "assessment" : {
+            "home": {
+                "title": "Assessments",
+                "createLabel": "Assessment erstellen",
+                "createOrEditLabel": "Assessment erstellen oder bearbeiten",
+                "search": "Suche nach Assessment"
+            },
+            "created": "Assessment erstellt mit ID {{ param }}",
+            "updated": "Assessment aktualisiert mit ID {{ param }}",
+            "deleted": "Assessment gelöscht mit ID {{ param }}",
+            "delete": {
+                "question": "Soll Assessment {{ id }} wirklich dauerhaft gelöscht werden?"
+            },
+            "detail": {
+                "title": "Assessment"
+            },
+            "description": "Description",
+            "date": "Date",
+            "furthereducation": "Furthereducation",
+            "member": "Member"
+        }
+    }
+}

@@ -24,59 +24,59 @@
             <column name="name" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="lastname" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="birthday" type="date">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="brevetnr" type="decimal(10,2)">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="adress" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="plz" type="integer">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="place" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="aquateam" type="bit">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="skipper" type="bit">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="boatdriver" type="bit">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="rescue" type="bit">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="phone" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="email" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="ownboat" type="bit">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="membertype_id" type="bigint">
                 <constraints nullable="true" />
             </column>
@@ -87,6 +87,6 @@
 
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
-        
+
     </changeSet>
 </databaseChangeLog>

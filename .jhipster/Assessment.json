@@ -1,0 +1,29 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "member",
+            "otherEntityName": "member",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "date",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "furthereducation",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20160629091111",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "assessment",
+    "pagination": "pager"
+}

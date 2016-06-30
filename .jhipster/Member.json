@@ -71,6 +71,10 @@
         {
             "fieldName": "ownboat",
             "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "skipperlevel",
+            "fieldType": "String"
         }
     ],
     "changelogDate": "20160622051110",

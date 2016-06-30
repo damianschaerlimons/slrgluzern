@@ -14,8 +14,11 @@ public interface FurtherEducationMapper {
 
     @Mapping(source = "member.id", target = "memberId")
     @Mapping(source = "member.name", target = "memberName")
+    @Mapping(source = "member.lastname", target = "memberLastname")
     @Mapping(source = "teacher.id", target = "teacherId")
     @Mapping(source = "teacher.name", target = "teacherName")
+    @Mapping(source = "teacher.lastname", target = "teacherLastname")
+
     FurtherEducationDTO furtherEducationToFurtherEducationDTO(FurtherEducation furtherEducation);
 
     List<FurtherEducationDTO> furtherEducationsToFurtherEducationDTOs(List<FurtherEducation> furtherEducations);

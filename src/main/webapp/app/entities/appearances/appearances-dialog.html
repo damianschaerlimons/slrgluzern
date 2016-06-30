@@ -38,7 +38,7 @@
 
         <div class="form-group">
             <label translate="slrgApp.appearances.member" for="field_member">Member</label>
-            <select class="form-control" id="field_member" name="member" ng-model="vm.appearances.memberId" ng-options="member.id as member.id for member in vm.members"            >
+            <select class="form-control" id="field_member" name="member" ng-model="vm.appearances.memberId" ng-options="member.id as member.name +' '+ member.lastname for member in vm.members"            >
                 <option value=""></option>
             </select>
         </div>

@@ -13,6 +13,8 @@ import java.util.List;
 public interface AppearancesMapper {
 
     @Mapping(source = "member.id", target = "memberId")
+    @Mapping(source = "member.name", target = "memberName")
+    @Mapping(source = "member.lastname", target = "memberLastname")
     @Mapping(source = "appearancesType.id", target = "appearancesTypeId")
     @Mapping(source = "appearancesType.name", target = "appearancesTypeName")
     AppearancesDTO appearancesToAppearancesDTO(Appearances appearances);

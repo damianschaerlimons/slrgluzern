@@ -34,7 +34,7 @@
                         <td>{{appearances.valid | date:'mediumDate'}}</td>
                     <td>{{appearances.hours}}</td>
                     <td>
-                        <a ui-sref="member-detail({id:appearances.memberId})">{{appearances.memberId}}</a>
+                        <a ui-sref="member-detail({id:appearances.memberId})">{{appearances.memberName +' '+ appearances.memberLastname}}</a>
                     </td>
                     <td>
                         <a ui-sref="appearances-type-detail({id:appearances.appearancesTypeId})">{{appearances.appearancesTypeName}}</a>

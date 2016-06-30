@@ -43,6 +43,8 @@ public class MemberDTO implements Serializable {
 
     private Boolean ownboat;
 
+    private String skipperlevel;
+
 
     private Long membertypeId;
     
@@ -159,6 +161,13 @@ public class MemberDTO implements Serializable {
     public void setOwnboat(Boolean ownboat) {
         this.ownboat = ownboat;
     }
+    public String getSkipperlevel() {
+        return skipperlevel;
+    }
+
+    public void setSkipperlevel(String skipperlevel) {
+        this.skipperlevel = skipperlevel;
+    }
 
     public Long getMembertypeId() {
         return membertypeId;
@@ -233,6 +242,7 @@ public class MemberDTO implements Serializable {
             ", phone='" + phone + "'" +
             ", email='" + email + "'" +
             ", ownboat='" + ownboat + "'" +
+            ", skipperlevel='" + skipperlevel + "'" +
             '}';
     }
 }
