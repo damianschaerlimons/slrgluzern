@@ -7,7 +7,7 @@
     Member.$inject = ['$resource', 'DateUtils'];
 
     function Member ($resource, DateUtils) {
-        var resourceUrl =  'api/members/:id';
+        var resourceUrl =  'api/members/:id/:type';
 
         return $resource(resourceUrl, {}, {
             'query': { method: 'GET', isArray: true},

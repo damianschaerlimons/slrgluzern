@@ -1,4 +1,4 @@
-./mvnw -Pprod package
+./mvnw -Pprod clean package
 
 mv target/slrg-0.0.3.war target/slrg.war
 

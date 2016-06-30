@@ -14,7 +14,7 @@ describe('Controller Tests', function() {
             MockMember = jasmine.createSpy('MockMember');
             MockMembertype = jasmine.createSpy('MockMembertype');
             MockSection = jasmine.createSpy('MockSection');
-            
+
 
             var locals = {
                 '$scope': $scope,
@@ -30,17 +30,17 @@ describe('Controller Tests', function() {
         }));
 
 
-        describe('Root Scope Listening', function() {
-            it('Unregisters root scope listener upon scope destruction', function() {
-                var eventType = 'slrgApp:memberUpdate';
-
-                createController();
-                expect($rootScope.$$listenerCount[eventType]).toEqual(1);
-
-                $scope.$destroy();
-                expect($rootScope.$$listenerCount[eventType]).toBeUndefined();
-            });
-        });
+//        describe('Root Scope Listening', function() {
+//            it('Unregisters root scope listener upon scope destruction', function() {
+//                var eventType = 'slrgApp:memberUpdate';
+//
+//                createController();
+//                expect($rootScope.$$listenerCount[eventType]).toEqual(1);
+//
+//                $scope.$destroy();
+//                expect($rootScope.$$listenerCount[eventType]).toBeUndefined();
+//            });
+//        });
     });
 
 });
