@@ -50,6 +50,12 @@ Unit tests are run by [Karma][] and written with [Jasmine][]. They're located in
 
     gulp test
 
+## Digital Ocean
+
+To set up properly on Digital Ocean it is necessary to start up with the following command 
+
+    java -Djava.security.egd=file:/dev/./urandom -jar slrg.war --spring.profiles.active=prod
+
 
 
 ## Continuous Integration

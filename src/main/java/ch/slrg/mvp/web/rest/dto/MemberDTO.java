@@ -41,11 +41,18 @@ public class MemberDTO implements Serializable {
 
     private String email;
 
+    private Boolean ownboat;
+
 
     private Long membertypeId;
     
 
     private String membertypeName;
+
+    private Long sectionId;
+    
+
+    private String sectionName;
 
     public Long getId() {
         return id;
@@ -145,6 +152,13 @@ public class MemberDTO implements Serializable {
     public void setEmail(String email) {
         this.email = email;
     }
+    public Boolean getOwnboat() {
+        return ownboat;
+    }
+
+    public void setOwnboat(Boolean ownboat) {
+        this.ownboat = ownboat;
+    }
 
     public Long getMembertypeId() {
         return membertypeId;
@@ -161,6 +175,23 @@ public class MemberDTO implements Serializable {
 
     public void setMembertypeName(String membertypeName) {
         this.membertypeName = membertypeName;
+    }
+
+    public Long getSectionId() {
+        return sectionId;
+    }
+
+    public void setSectionId(Long sectionId) {
+        this.sectionId = sectionId;
+    }
+
+
+    public String getSectionName() {
+        return sectionName;
+    }
+
+    public void setSectionName(String sectionName) {
+        this.sectionName = sectionName;
     }
 
     @Override
@@ -201,6 +232,7 @@ public class MemberDTO implements Serializable {
             ", rescue='" + rescue + "'" +
             ", phone='" + phone + "'" +
             ", email='" + email + "'" +
+            ", ownboat='" + ownboat + "'" +
             '}';
     }
 }

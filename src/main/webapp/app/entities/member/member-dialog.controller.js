@@ -5,9 +5,9 @@
         .module('slrgApp')
         .controller('MemberDialogController', MemberDialogController);
 
-    MemberDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Member', 'Membertype'];
+    MemberDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Member', 'Membertype', 'Section'];
 
-    function MemberDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, Member, Membertype) {
+    function MemberDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, Member, Membertype, Section) {
         var vm = this;
 
         vm.member = entity;
@@ -16,6 +16,7 @@
         vm.openCalendar = openCalendar;
         vm.save = save;
         vm.membertypes = Membertype.query();
+        vm.sections = Section.query();
 
         $timeout(function (){
             angular.element('.form-group:eq(1)>input').focus();
@@ -28,7 +29,6 @@
         function save () {
             vm.isSaving = true;
             if (vm.member.id !== null) {
-                console.log(vm.member);
                 Member.update(vm.member, onSaveSuccess, onSaveError);
             } else {
                 Member.save(vm.member, onSaveSuccess, onSaveError);

@@ -81,6 +81,9 @@ public class MemberResourceIntTest {
     private static final String DEFAULT_EMAIL = "AAAAA";
     private static final String UPDATED_EMAIL = "BBBBB";
 
+    private static final Boolean DEFAULT_OWNBOAT = false;
+    private static final Boolean UPDATED_OWNBOAT = true;
+
     @Inject
     private MemberRepository memberRepository;
 
@@ -127,6 +130,7 @@ public class MemberResourceIntTest {
         member.setRescue(DEFAULT_RESCUE);
         member.setPhone(DEFAULT_PHONE);
         member.setEmail(DEFAULT_EMAIL);
+        member.setOwnboat(DEFAULT_OWNBOAT);
     }
 
     @Test
@@ -159,6 +163,7 @@ public class MemberResourceIntTest {
         assertThat(testMember.isRescue()).isEqualTo(DEFAULT_RESCUE);
         assertThat(testMember.getPhone()).isEqualTo(DEFAULT_PHONE);
         assertThat(testMember.getEmail()).isEqualTo(DEFAULT_EMAIL);
+        assertThat(testMember.isOwnboat()).isEqualTo(DEFAULT_OWNBOAT);
     }
 
     @Test
@@ -184,7 +189,8 @@ public class MemberResourceIntTest {
                 .andExpect(jsonPath("$.[*].boatdriver").value(hasItem(DEFAULT_BOATDRIVER.booleanValue())))
                 .andExpect(jsonPath("$.[*].rescue").value(hasItem(DEFAULT_RESCUE.booleanValue())))
                 .andExpect(jsonPath("$.[*].phone").value(hasItem(DEFAULT_PHONE.toString())))
-                .andExpect(jsonPath("$.[*].email").value(hasItem(DEFAULT_EMAIL.toString())));
+                .andExpect(jsonPath("$.[*].email").value(hasItem(DEFAULT_EMAIL.toString())))
+                .andExpect(jsonPath("$.[*].ownboat").value(hasItem(DEFAULT_OWNBOAT.booleanValue())));
     }
 
     @Test
@@ -210,7 +216,8 @@ public class MemberResourceIntTest {
             .andExpect(jsonPath("$.boatdriver").value(DEFAULT_BOATDRIVER.booleanValue()))
             .andExpect(jsonPath("$.rescue").value(DEFAULT_RESCUE.booleanValue()))
             .andExpect(jsonPath("$.phone").value(DEFAULT_PHONE.toString()))
-            .andExpect(jsonPath("$.email").value(DEFAULT_EMAIL.toString()));
+            .andExpect(jsonPath("$.email").value(DEFAULT_EMAIL.toString()))
+            .andExpect(jsonPath("$.ownboat").value(DEFAULT_OWNBOAT.booleanValue()));
     }
 
     @Test
@@ -244,6 +251,7 @@ public class MemberResourceIntTest {
         updatedMember.setRescue(UPDATED_RESCUE);
         updatedMember.setPhone(UPDATED_PHONE);
         updatedMember.setEmail(UPDATED_EMAIL);
+        updatedMember.setOwnboat(UPDATED_OWNBOAT);
         MemberDTO memberDTO = memberMapper.memberToMemberDTO(updatedMember);
 
         restMemberMockMvc.perform(put("/api/members")
@@ -268,6 +276,7 @@ public class MemberResourceIntTest {
         assertThat(testMember.isRescue()).isEqualTo(UPDATED_RESCUE);
         assertThat(testMember.getPhone()).isEqualTo(UPDATED_PHONE);
         assertThat(testMember.getEmail()).isEqualTo(UPDATED_EMAIL);
+        assertThat(testMember.isOwnboat()).isEqualTo(UPDATED_OWNBOAT);
     }
 
     @Test

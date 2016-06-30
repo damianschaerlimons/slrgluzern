@@ -12,10 +12,13 @@
     <include file="classpath:config/liquibase/changelog/20160622155841_added_entity_AppearancesType.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160622160035_added_entity_Appearances.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160623143148_added_entity_FurtherEducation.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160629091111_added_entity_Assessment.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160630050219_added_entity_Section.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
     <include file="classpath:config/liquibase/changelog/20160622051110_added_entity_constraints_Member.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160622052517_added_entity_constraints_Education.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160622160035_added_entity_constraints_Appearances.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160623143148_added_entity_constraints_FurtherEducation.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160629091111_added_entity_constraints_Assessment.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

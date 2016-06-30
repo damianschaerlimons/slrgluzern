@@ -14,6 +14,8 @@
                 "appearancesType": "Appearances Type",
                 "appearances": "Appearances",
                 "furtherEducation": "Further Education",
+                "assessment": "Assessment",
+                "section": "Section",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

@@ -29,7 +29,9 @@
             "rescue": "Rescue",
             "phone": "Phone",
             "email": "Email",
-            "membertype": "Membertype"
+            "ownboat": "Ownboat",
+            "membertype": "Membertype",
+            "section": "Section"
         }
     }
 }

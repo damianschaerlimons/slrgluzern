@@ -32,10 +32,10 @@ spring:
             hibernate.generate_statistics: false
             hibernate.cache.region.factory_class: org.hibernate.cache.ehcache.SingletonEhCacheRegionFactory
     mail:
-        host: localhost
+        host: mail.slrgluzern.ch
         port: 25
-        username:
-        password:
+        username: vmp@slrgluzern.ch
+        password: h8ws"Lk?P*
     thymeleaf:
         cache: true
 
@@ -66,7 +66,7 @@ jhipster:
             # security key (this key should be unique for your application, and kept secret)
             key: eb2836e351498288f8f39b5cbd71906712dd9a11
     mail: # specific JHipster mail property, for standard properties see MailProperties
-        from: slrg@localhost
+        from: vmp@slrgluzern.ch
     metrics: # DropWizard Metrics configuration, used by MetricsConfiguration
         jmx.enabled: true
         spark:

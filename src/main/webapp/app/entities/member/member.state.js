@@ -52,8 +52,7 @@
                     $translatePartialLoader.addPart('appearances');
                     $translatePartialLoader.addPart('furtherEducation');
                     $translatePartialLoader.addPart('global');
-
-
+                    $translatePartialLoader.addPart('assessment');
 
                     return $translate.refresh();
                 }],
@@ -91,6 +90,7 @@
                                 rescue: null,
                                 phone: null,
                                 email: null,
+                                ownboat: null,
                                 id: null
                             };
                         }

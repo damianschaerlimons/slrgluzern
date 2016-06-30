@@ -21,10 +21,20 @@
                     <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="name"><span translate="slrgApp.member.name">Name</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="lastname"><span translate="slrgApp.member.lastname">Lastname</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="brevetnr"><span translate="slrgApp.member.brevetnr">Brevetnr</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <!--<th jh-sort-by="birthday"><span translate="slrgApp.member.birthday">Birthday</span> <span class="glyphicon glyphicon-sort"></span></th>-->
+                    <!--<th jh-sort-by="brevetnr"><span translate="slrgApp.member.brevetnr">Brevetnr</span> <span class="glyphicon glyphicon-sort"></span></th>-->
+                    <!--<th jh-sort-by="adress"><span translate="slrgApp.member.adress">Adress</span> <span class="glyphicon glyphicon-sort"></span></th>-->
+                    <!--<th jh-sort-by="plz"><span translate="slrgApp.member.plz">Plz</span> <span class="glyphicon glyphicon-sort"></span></th>-->
+                    <!--<th jh-sort-by="place"><span translate="slrgApp.member.place">Place</span> <span class="glyphicon glyphicon-sort"></span></th>-->
                     <th jh-sort-by="aquateam"><span translate="slrgApp.member.aquateam">Aquateam</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="phone"><span translate="slrgApp.member.phone">Phone</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="skipper"><span translate="slrgApp.member.skipper">Skipper</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="boatdriver"><span translate="slrgApp.member.boatdriver">Boatdriver</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="rescue"><span translate="slrgApp.member.rescue">Rescue</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <!--<th jh-sort-by="phone"><span translate="slrgApp.member.phone">Phone</span> <span class="glyphicon glyphicon-sort"></span></th>-->
                     <th jh-sort-by="email"><span translate="slrgApp.member.email">Email</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <!--<th jh-sort-by="ownboat"><span translate="slrgApp.member.ownboat">Ownboat</span> <span class="glyphicon glyphicon-sort"></span></th>-->
+                    <!--<th jh-sort-by="membertypeName"><span translate="slrgApp.member.membertype">Membertype</span> <span class="glyphicon glyphicon-sort"></span></th>-->
+                    <th jh-sort-by="sectionName"><span translate="slrgApp.member.section">Section</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th></th>
                 </tr>
             </thead>
@@ -33,12 +43,21 @@
                     <td><a ui-sref="member-detail({id:member.id})">{{member.id}}</a></td>
                     <td>{{member.name}}</td>
                     <td>{{member.lastname}}</td>
-                    <td>{{member.brevetnr}}</td>
-                    <td>{{member.aquateam}}</td>
-                    <td>{{member.phone}}</td>
+                        <!--<td>{{member.birthday | date:'mediumDate'}}</td>-->
+                    <!--<td>{{member.brevetnr}}</td>-->
+                    <!--<td>{{member.adress}}</td>-->
+                    <!--<td>{{member.plz}}</td>-->
+                    <!--<td>{{member.place}}</td>-->
+                    <td ><span ng-class="member.aquateam ? 'glyphicon glyphicon-ok' : 'glyphicon glyphicon-remove'" ></span></td>
+                    <td ><span ng-class="member.skipper ? 'glyphicon glyphicon-ok' : 'glyphicon glyphicon-remove'"></span> </td>
+                    <td > <span ng-class="member.boatdriver ? 'glyphicon glyphicon-ok' : 'glyphicon glyphicon-remove'" ></span> </td>
+                    <td > <span ng-class="member.rescue ? 'glyphicon glyphicon-ok' : 'glyphicon glyphicon-remove'"></span> </td>
+                    <!--<td>{{member.phone}}</td>-->
                     <td>{{member.email}}</td>
+                    <!--<td>{{member.ownboat}}</td>-->
+
                     <td>
-                        <a ui-sref="membertype-detail({id:member.membertypeId})">{{member.membertypeName}}</a>
+                        <a ui-sref="section-detail({id:member.sectionId})">{{member.sectionName}}</a>
                     </td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
@@ -46,7 +65,7 @@
                                     ui-sref="member-detail({id:member.id})"
                                     class="btn btn-info btn-sm">
                                 <span class="glyphicon glyphicon-eye-open"></span>
-                                <span class="hidden-xs hidden-sm"></span>
+                                <span class="hidden-xs hidden-sm" ></span>
                             </button>
                             <button type="submit"
                                     ui-sref="member.edit({id:member.id})"

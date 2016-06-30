@@ -5,6 +5,12 @@
             "otherEntityName": "membertype",
             "relationshipType": "many-to-one",
             "otherEntityField": "name"
+        },
+        {
+            "relationshipName": "section",
+            "otherEntityName": "section",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
         }
     ],
     "fields": [
@@ -61,6 +67,10 @@
         {
             "fieldName": "email",
             "fieldType": "String"
+        },
+        {
+            "fieldName": "ownboat",
+            "fieldType": "Boolean"
         }
     ],
     "changelogDate": "20160622051110",

@@ -7,13 +7,9 @@
     Member.$inject = ['$resource', 'DateUtils'];
 
     function Member ($resource, DateUtils) {
-        var resourceUrl =  'api/members/:id/:type';
-//        var resourceUrl =  'api/members/:id';
+        var resourceUrl =  'api/members/:id';
 
-        return $resource(resourceUrl, {
-//            id: '@id',
-//            type: '@type'
-        }, {
+        return $resource(resourceUrl, {}, {
             'query': { method: 'GET', isArray: true},
             'get': {
                 method: 'GET',
@@ -38,41 +34,51 @@
                     data.birthday = DateUtils.convertLocalDateToServer(data.birthday);
                     return angular.toJson(data);
                 }
-            }
-            ,
-            'education': {
-                method: 'GET',
-                isArray: true,
-//                transformRequest: function (data) {
-//                                    data.birthday = DateUtils.convertLocalDateToServer(data.birthday);
-//                                    return angular.toJson(data);
-//                                },
-                params: {
-                    type: 'educations'
+                 },
+                 'education': {
+                     method: 'GET',
+                     isArray: true,
+     //                transformRequest: function (data) {
+     //                                    data.birthday = DateUtils.convertLocalDateToServer(data.birthday);
+     //                                    return angular.toJson(data);
+     //                                },
+                     params: {
+                         type: 'educations'
+                     }
+                 },
+                  'appearances': {
+                      method: 'GET',
+                      isArray: true,
+      //                transformRequest: function (data) {
+      //                                    data.birthday = DateUtils.convertLocalDateToServer(data.birthday);
+      //                                    return angular.toJson(data);
+      //                                },
+                      params: {
+                          type: 'appearances'
+                      }
+                 },
+                   'furtheredu': {
+                       method: 'GET',
+                       isArray: true,
+       //                transformRequest: function (data) {
+       //                                    data.birthday = DateUtils.convertLocalDateToServer(data.birthday);
+       //                                    return angular.toJson(data);
+       //                                },
+                       params: {
+                           type: 'furtheredu'
+                       }
+                  },
+                 'assessment': {
+                     method: 'GET',
+                     isArray: true,
+     //                transformRequest: function (data) {
+     //                                    data.birthday = DateUtils.convertLocalDateToServer(data.birthday);
+     //                                    return angular.toJson(data);
+     //                                },
+                     params: {
+                         type: 'assessments'
+                     }
                 }
-            },
-             'appearances': {
-                 method: 'GET',
-                 isArray: true,
- //                transformRequest: function (data) {
- //                                    data.birthday = DateUtils.convertLocalDateToServer(data.birthday);
- //                                    return angular.toJson(data);
- //                                },
-                 params: {
-                     type: 'appearances'
-                 }
-            },
-              'furtheredu': {
-                  method: 'GET',
-                  isArray: true,
-  //                transformRequest: function (data) {
-  //                                    data.birthday = DateUtils.convertLocalDateToServer(data.birthday);
-  //                                    return angular.toJson(data);
-  //                                },
-                  params: {
-                      type: 'furtheredu'
-                  }
-             }
 
         });
     }

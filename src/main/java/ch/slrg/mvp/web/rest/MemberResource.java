@@ -1,5 +1,8 @@
 package ch.slrg.mvp.web.rest;
 
+import ch.slrg.mvp.domain.Assessment;
+import ch.slrg.mvp.repository.AssessmentRepository;
+import ch.slrg.mvp.security.AuthoritiesConstants;
 import ch.slrg.mvp.service.AppearancesService;
 import ch.slrg.mvp.service.EducationService;
 import ch.slrg.mvp.service.FurtherEducationService;
@@ -21,6 +24,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 
 import javax.inject.Inject;
@@ -44,6 +48,9 @@ public class MemberResource {
     private MemberService memberService;
 
     @Inject
+    private MemberMapper memberMapper;
+
+    @Inject
     private EducationService educationService;
 
     @Inject
@@ -53,7 +60,8 @@ public class MemberResource {
     private FurtherEducationService furtherEducationService;
 
     @Inject
-    private MemberMapper memberMapper;
+    private AssessmentRepository assessmentRepository;
+
 
     /**
      * POST  /members : Create a new member.
@@ -156,7 +164,6 @@ public class MemberResource {
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert("member", id.toString())).build();
     }
 
-
     /**
      * GET  /members/:id/education : delete the "id" member.
      *
@@ -167,6 +174,7 @@ public class MemberResource {
         method = RequestMethod.GET,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
+    @Secured(AuthoritiesConstants.USER)
     public ResponseEntity<List<EducationDTO>> getListEducation(@PathVariable Long id) {
         log.debug("REST request to find Member Education : {}", id);
         List<EducationDTO> dtos = educationService.findEducationsByMember(id);
@@ -188,6 +196,7 @@ public class MemberResource {
         method = RequestMethod.GET,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
+    @Secured(AuthoritiesConstants.USER)
     public ResponseEntity<List<AppearancesDTO>> getListAppearances(@PathVariable Long id) {
         log.debug("REST request to find Member Appearances : {}", id);
         List<AppearancesDTO> dtos = appearancesService.findAppearancesByMemberId(id);
@@ -209,9 +218,31 @@ public class MemberResource {
         method = RequestMethod.GET,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
+    @Secured(AuthoritiesConstants.USER)
     public ResponseEntity<List<FurtherEducationDTO>> getListFurtherEdu(@PathVariable Long id) {
         log.debug("REST request to find Member Appearances : {}", id);
         List<FurtherEducationDTO> dtos = furtherEducationService.findFurtherEducationByMemberId(id);
+        return Optional.ofNullable(dtos)
+            .map(result -> new ResponseEntity<>(
+                result,
+                HttpStatus.OK))
+            .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    }
+
+    /**
+     * GET  /members/:id/assessments :  get all further Educations by one member.
+     *
+     * @param id the id of the Member to load the Educations from
+     * @return the ResponseEntity with status 200 (OK)
+     */
+    @RequestMapping(value = "/members/{id}/assessments",
+        method = RequestMethod.GET,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    @Secured(AuthoritiesConstants.USER)
+    public ResponseEntity<List<Assessment>> getAssessments(@PathVariable Long id) {
+        log.debug("REST request to find Member Assessments : {}", id);
+        List<Assessment> dtos = assessmentRepository.findAssessmentByMemberId(id);
         return Optional.ofNullable(dtos)
             .map(result -> new ResponseEntity<>(
                 result,

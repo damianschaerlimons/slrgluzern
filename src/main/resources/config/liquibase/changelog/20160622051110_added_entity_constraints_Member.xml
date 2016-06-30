@@ -14,5 +14,11 @@
                                  referencedColumnNames="id"
                                  referencedTableName="membertype"/>
 
+        <addForeignKeyConstraint baseColumnNames="section_id"
+                                 baseTableName="member"
+                                 constraintName="fk_member_section_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="section"/>
+
     </changeSet>
 </databaseChangeLog>

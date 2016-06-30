@@ -95,10 +95,22 @@
                     ng-model="vm.member.email"
                      />
         </div>
+        <div class="form-group">
+            <label class="control-label" translate="slrgApp.member.ownboat" for="field_ownboat">Ownboat</label>
+            <input type="checkbox" class="form-control" name="ownboat" id="field_ownboat"
+                    ng-model="vm.member.ownboat"
+                     />
+        </div>
 
         <div class="form-group">
             <label translate="slrgApp.member.membertype" for="field_membertype">Membertype</label>
             <select class="form-control" id="field_membertype" name="membertype" ng-model="vm.member.membertypeId" ng-options="membertype.id as membertype.name for membertype in vm.membertypes"            >
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label translate="slrgApp.member.section" for="field_section">Section</label>
+            <select class="form-control" id="field_section" name="section" ng-model="vm.member.sectionId" ng-options="section.id as section.name for section in vm.sections"            >
                 <option value=""></option>
             </select>
         </div>

@@ -62,8 +62,14 @@ public class Member implements Serializable {
     @Column(name = "email")
     private String email;
 
+    @Column(name = "ownboat")
+    private Boolean ownboat;
+
     @ManyToOne
     private Membertype membertype;
+
+    @ManyToOne
+    private Section section;
 
     public Long getId() {
         return id;
@@ -177,12 +183,28 @@ public class Member implements Serializable {
         this.email = email;
     }
 
+    public Boolean isOwnboat() {
+        return ownboat;
+    }
+
+    public void setOwnboat(Boolean ownboat) {
+        this.ownboat = ownboat;
+    }
+
     public Membertype getMembertype() {
         return membertype;
     }
 
     public void setMembertype(Membertype membertype) {
         this.membertype = membertype;
+    }
+
+    public Section getSection() {
+        return section;
+    }
+
+    public void setSection(Section section) {
+        this.section = section;
     }
 
     @Override
@@ -222,6 +244,7 @@ public class Member implements Serializable {
             ", rescue='" + rescue + "'" +
             ", phone='" + phone + "'" +
             ", email='" + email + "'" +
+            ", ownboat='" + ownboat + "'" +
             '}';
     }
 }

@@ -73,7 +73,15 @@
                 <constraints nullable="true" />
             </column>
             
+            <column name="ownboat" type="bit">
+                <constraints nullable="true" />
+            </column>
+            
             <column name="membertype_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="section_id" type="bigint">
                 <constraints nullable="true" />
             </column>
 

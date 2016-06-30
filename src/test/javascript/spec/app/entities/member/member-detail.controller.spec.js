@@ -4,7 +4,7 @@ describe('Controller Tests', function() {
 
     describe('Member Management Detail Controller', function() {
         var $scope, $rootScope;
-        var MockEntity, MockMember, MockMembertype;
+        var MockEntity, MockMember, MockMembertype, MockSection;
         var createController;
 
         beforeEach(inject(function($injector) {
@@ -13,14 +13,16 @@ describe('Controller Tests', function() {
             MockEntity = jasmine.createSpy('MockEntity');
             MockMember = jasmine.createSpy('MockMember');
             MockMembertype = jasmine.createSpy('MockMembertype');
-
+            MockSection = jasmine.createSpy('MockSection');
+            
 
             var locals = {
                 '$scope': $scope,
                 '$rootScope': $rootScope,
                 'entity': MockEntity ,
                 'Member': MockMember,
-                'Membertype': MockMembertype
+                'Membertype': MockMembertype,
+                'Section': MockSection
             };
             createController = function() {
                 $injector.get('$controller')("MemberDetailController", locals);
@@ -28,17 +30,17 @@ describe('Controller Tests', function() {
         }));
 
 
-//        describe('Root Scope Listening', function() {
-//            it('Unregisters root scope listener upon scope destruction', function() {
-//                var eventType = 'slrgApp:memberUpdate';
-//
-//                createController();
-//                expect($rootScope.$$listenerCount[eventType]).toEqual(1);
-//
-//                $scope.$destroy();
-//                expect($rootScope.$$listenerCount[eventType]).toBeUndefined();
-//            });
-//        });
+        describe('Root Scope Listening', function() {
+            it('Unregisters root scope listener upon scope destruction', function() {
+                var eventType = 'slrgApp:memberUpdate';
+
+                createController();
+                expect($rootScope.$$listenerCount[eventType]).toEqual(1);
+
+                $scope.$destroy();
+                expect($rootScope.$$listenerCount[eventType]).toBeUndefined();
+            });
+        });
     });
 
 });

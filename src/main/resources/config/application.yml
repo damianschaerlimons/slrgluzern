@@ -59,13 +59,13 @@ jhipster:
         #allow-credentials: true
         #max-age: 1800
     mail:
-        from: slrg@localhost
+        from: vmp@slrgluzern.ch
     swagger:
-        title: slrg API
+        title: SLRG API
         description: slrg API documentation
         version: 0.0.1
         termsOfServiceUrl:
-        contactName:
+        contactName: Damian Schärli
         contactUrl:
         contactEmail:
         license:

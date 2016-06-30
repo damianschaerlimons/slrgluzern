@@ -1,5 +1,6 @@
 package ch.slrg.mvp.web.rest;
 
+import ch.slrg.mvp.security.AuthoritiesConstants;
 import com.codahale.metrics.annotation.Timed;
 import ch.slrg.mvp.domain.Membertype;
 import ch.slrg.mvp.repository.MembertypeRepository;
@@ -10,6 +11,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 
 import javax.inject.Inject;
@@ -26,10 +28,10 @@ import java.util.Optional;
 public class MembertypeResource {
 
     private final Logger log = LoggerFactory.getLogger(MembertypeResource.class);
-        
+
     @Inject
     private MembertypeRepository membertypeRepository;
-    
+
     /**
      * POST  /membertypes : Create a new membertype.
      *
@@ -41,6 +43,7 @@ public class MembertypeResource {
         method = RequestMethod.POST,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
+    @Secured(AuthoritiesConstants.USER)
     public ResponseEntity<Membertype> createMembertype(@RequestBody Membertype membertype) throws URISyntaxException {
         log.debug("REST request to save Membertype : {}", membertype);
         if (membertype.getId() != null) {
@@ -65,6 +68,7 @@ public class MembertypeResource {
         method = RequestMethod.PUT,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
+    @Secured(AuthoritiesConstants.USER)
     public ResponseEntity<Membertype> updateMembertype(@RequestBody Membertype membertype) throws URISyntaxException {
         log.debug("REST request to update Membertype : {}", membertype);
         if (membertype.getId() == null) {
@@ -85,6 +89,7 @@ public class MembertypeResource {
         method = RequestMethod.GET,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
+    @Secured(AuthoritiesConstants.USER)
     public List<Membertype> getAllMembertypes() {
         log.debug("REST request to get all Membertypes");
         List<Membertype> membertypes = membertypeRepository.findAll();
@@ -101,6 +106,7 @@ public class MembertypeResource {
         method = RequestMethod.GET,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
+    @Secured(AuthoritiesConstants.USER)
     public ResponseEntity<Membertype> getMembertype(@PathVariable Long id) {
         log.debug("REST request to get Membertype : {}", id);
         Membertype membertype = membertypeRepository.findOne(id);
@@ -121,6 +127,7 @@ public class MembertypeResource {
         method = RequestMethod.DELETE,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
+    @Secured(AuthoritiesConstants.USER)
     public ResponseEntity<Void> deleteMembertype(@PathVariable Long id) {
         log.debug("REST request to delete Membertype : {}", id);
         membertypeRepository.delete(id);
