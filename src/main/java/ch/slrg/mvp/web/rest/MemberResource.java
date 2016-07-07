@@ -5,22 +5,16 @@ import ch.slrg.mvp.repository.AppearancesRepository;
 import ch.slrg.mvp.repository.AssessmentRepository;
 import ch.slrg.mvp.repository.EducationRepository;
 import ch.slrg.mvp.repository.FurtherEducationRepository;
-import ch.slrg.mvp.security.AuthoritiesConstants;
-import com.codahale.metrics.annotation.Timed;
 import ch.slrg.mvp.service.MemberService;
-import ch.slrg.mvp.web.rest.util.HeaderUtil;
-import ch.slrg.mvp.web.rest.util.PaginationUtil;
 import ch.slrg.mvp.web.rest.dto.MemberDTO;
 import ch.slrg.mvp.web.rest.mapper.MemberMapper;
+import ch.slrg.mvp.web.rest.util.HeaderUtil;
+import com.codahale.metrics.annotation.Timed;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 
 import javax.inject.Inject;
@@ -56,6 +50,7 @@ public class MemberResource {
 
     @Inject
     private AssessmentRepository assessmentRepository;
+
 
 
     /**
@@ -107,20 +102,15 @@ public class MemberResource {
     /**
      * GET  /members : get all the members.
      *
-     * @param pageable the pagination information
      * @return the ResponseEntity with status 200 (OK) and the list of members in body
-     * @throws URISyntaxException if there is an error to generate the pagination HTTP headers
      */
     @RequestMapping(value = "/members",
         method = RequestMethod.GET,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    public ResponseEntity<List<MemberDTO>> getAllMembers(Pageable pageable)
-        throws URISyntaxException {
-        log.debug("REST request to get a page of Members");
-        Page<Member> page = memberService.findAll(pageable);
-        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/members");
-        return new ResponseEntity<>(memberMapper.membersToMemberDTOs(page.getContent()), headers, HttpStatus.OK);
+    public List<MemberDTO> getAllMembers() {
+        log.debug("REST request to get all Members");
+        return memberService.findAll();
     }
 
     /**
@@ -159,6 +149,8 @@ public class MemberResource {
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert("member", id.toString())).build();
     }
 
+
+
     /**
      * GET  /members/:id/education : delete the "id" member.
      *
@@ -169,7 +161,6 @@ public class MemberResource {
         method = RequestMethod.GET,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    @Secured(AuthoritiesConstants.USER)
     public ResponseEntity<List<Education>> getListEducation(@PathVariable Long id) {
         log.debug("REST request to find Member Education : {}", id);
         List<Education> dtos = educationRepository.findEducationByMemberId(id);
@@ -191,7 +182,6 @@ public class MemberResource {
         method = RequestMethod.GET,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    @Secured(AuthoritiesConstants.USER)
     public ResponseEntity<List<Appearances>> getListAppearances(@PathVariable Long id) {
         log.debug("REST request to find Member Appearances : {}", id);
         List<Appearances> dtos = appearancesRepository.findAppearancesByMemberId(id);
@@ -213,7 +203,6 @@ public class MemberResource {
         method = RequestMethod.GET,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    @Secured(AuthoritiesConstants.USER)
     public ResponseEntity<List<FurtherEducation>> getListFurtherEdu(@PathVariable Long id) {
         log.debug("REST request to find Member Appearances : {}", id);
         List<FurtherEducation> dtos = furtherEducationRepository.findFurtherEducationByMemberId(id);
@@ -234,7 +223,6 @@ public class MemberResource {
         method = RequestMethod.GET,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    @Secured(AuthoritiesConstants.USER)
     public ResponseEntity<List<Assessment>> getAssessments(@PathVariable Long id) {
         log.debug("REST request to find Member Assessments : {}", id);
         List<Assessment> dtos = assessmentRepository.findAssessmentByMemberId(id);
@@ -245,36 +233,35 @@ public class MemberResource {
             .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
-    /**
-     * GET  /members/search :  get all further Educations by one member.
-     *
-     * @return the ResponseEntity with status 200 (OK)
-     */
-    @RequestMapping(value = "/members/search",
-        method = RequestMethod.GET,
-        produces = MediaType.APPLICATION_JSON_VALUE)
-    @Timed
-    @Secured(AuthoritiesConstants.USER)
-    public ResponseEntity<List<MemberDTO>> searchMembers(@RequestParam(value="aquateam") boolean aquateam, @RequestParam(value="skipper") boolean skipper, @RequestParam(value="boatdriver") boolean boatdriver) {
-        log.debug("Search for aquateam: {}, skipper: {}, boatdriver: {}", aquateam, skipper, boatdriver );
-        List<Member> members = memberService.search(aquateam, skipper, boatdriver);
-        return new ResponseEntity<>(memberMapper.membersToMemberDTOs(members), HttpStatus.OK);
-    }
+//    /**
+////     * GET  /members/search :  get all further Educations by one member.
+////     *
+////     * @return the ResponseEntity with status 200 (OK)
+////     */
+//    @RequestMapping(value = "/members/search",
+//        method = RequestMethod.GET,
+//        produces = MediaType.APPLICATION_JSON_VALUE)
+//    @Timed
+//    public ResponseEntity<List<MemberDTO>> searchMembers(@RequestParam(value="aquateam") boolean aquateam, @RequestParam(value="skipper") boolean skipper, @RequestParam(value="boatdriver") boolean boatdriver) {
+//        log.debug("Search for aquateam: {}, skipper: {}, boatdriver: {}", aquateam, skipper, boatdriver );
+//        List<Member> members = memberService.search(aquateam, skipper, boatdriver);
+//        return new ResponseEntity<>(memberMapper.membersToMemberDTOs(members), HttpStatus.OK);
+//    }
 
 
-    /**
-     * GET  /members/search :  get all further Educations by one member.
-     *
-     * @return the ResponseEntity with status 200 (OK)
-     */
-    @RequestMapping(value = "/members/export",
-        method = RequestMethod.GET,
-        produces = MediaType.APPLICATION_JSON_VALUE)
-    @Timed
-    @Secured(AuthoritiesConstants.USER)
-    public void exportMembers(HttpServletResponse response, @RequestParam(value="aquateam")boolean aquateam, @RequestParam(value="skipper") boolean skipper, @RequestParam(value="boatdriver") boolean boatdriver) {
-        log.debug("Export for aquateam: {}, skipper: {}, boatdriver: {}", aquateam, skipper, boatdriver );
-        memberService.export(response, aquateam, skipper, boatdriver);
-    }
+//    /**
+//     * GET  /members/search :  get all further Educations by one member.
+//     *
+//     * @return the ResponseEntity with status 200 (OK)
+//     */
+//    @RequestMapping(value = "/members/export",
+//        method = RequestMethod.GET,
+//        produces = MediaType.APPLICATION_JSON_VALUE)
+//    @Timed
+//    public void exportMembers(HttpServletResponse response, @RequestParam(value="aquateam")boolean aquateam, @RequestParam(value="skipper") boolean skipper, @RequestParam(value="boatdriver") boolean boatdriver) {
+//        log.debug("Export for aquateam: {}, skipper: {}, boatdriver: {}", aquateam, skipper, boatdriver );
+//        memberService.export(response, aquateam, skipper, boatdriver);
+//    }
+
 
 }

@@ -11,6 +11,6 @@ import java.util.List;
  */
 @SuppressWarnings("unused")
 public interface MemberRepository extends JpaRepository<Member,Long> {
-
     List<Member> findMembersByAquateamOrSkipperOrBoatdriver(boolean aquateam, boolean skipper, boolean boatdriver);
+
 }
