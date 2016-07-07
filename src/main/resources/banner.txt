@@ -1,25 +1,10 @@
-
-                                                                                                                                                                   bbbbbbbb
-   SSSSSSSSSSSSSSS LLLLLLLLLLL             RRRRRRRRRRRRRRRRR           GGGGGGGGGGGGG     MMMMMMMM               MMMMMMMM                                           b::::::b
- SS:::::::::::::::SL:::::::::L             R::::::::::::::::R       GGG::::::::::::G     M:::::::M             M:::::::M                                           b::::::b
-S:::::SSSSSS::::::SL:::::::::L             R::::::RRRRRR:::::R    GG:::::::::::::::G     M::::::::M           M::::::::M                                           b::::::b
-S:::::S     SSSSSSSLL:::::::LL             RR:::::R     R:::::R  G:::::GGGGGGGG::::G     M:::::::::M         M:::::::::M                                            b:::::b
-S:::::S              L:::::L                 R::::R     R:::::R G:::::G       GGGGGG     M::::::::::M       M::::::::::M    eeeeeeeeeeee       mmmmmmm    mmmmmmm   b:::::bbbbbbbbb        eeeeeeeeeeee    rrrrr   rrrrrrrrr
-S:::::S              L:::::L                 R::::R     R:::::RG:::::G                   M:::::::::::M     M:::::::::::M  ee::::::::::::ee   mm:::::::m  m:::::::mm b::::::::::::::bb    ee::::::::::::ee  r::::rrr:::::::::r
- S::::SSSS           L:::::L                 R::::RRRRRR:::::R G:::::G                   M:::::::M::::M   M::::M:::::::M e::::::eeeee:::::eem::::::::::mm::::::::::mb::::::::::::::::b  e::::::eeeee:::::eer:::::::::::::::::r
-  SS::::::SSSSS      L:::::L                 R:::::::::::::RR  G:::::G    GGGGGGGGGG     M::::::M M::::M M::::M M::::::Me::::::e     e:::::em::::::::::::::::::::::mb:::::bbbbb:::::::be::::::e     e:::::err::::::rrrrr::::::r
-    SSS::::::::SS    L:::::L                 R::::RRRRRR:::::R G:::::G    G::::::::G     M::::::M  M::::M::::M  M::::::Me:::::::eeeee::::::em:::::mmm::::::mmm:::::mb:::::b    b::::::be:::::::eeeee::::::e r:::::r     r:::::r
-       SSSSSS::::S   L:::::L                 R::::R     R:::::RG:::::G    GGGGG::::G     M::::::M   M:::::::M   M::::::Me:::::::::::::::::e m::::m   m::::m   m::::mb:::::b     b:::::be:::::::::::::::::e  r:::::r     rrrrrrr
-            S:::::S  L:::::L                 R::::R     R:::::RG:::::G        G::::G     M::::::M    M:::::M    M::::::Me::::::eeeeeeeeeee  m::::m   m::::m   m::::mb:::::b     b:::::be::::::eeeeeeeeeee   r:::::r
-            S:::::S  L:::::L         LLLLLL  R::::R     R:::::R G:::::G       G::::G     M::::::M     MMMMM     M::::::Me:::::::e           m::::m   m::::m   m::::mb:::::b     b:::::be:::::::e            r:::::r
-SSSSSSS     S:::::SLL:::::::LLLLLLLLL:::::LRR:::::R     R:::::R  G:::::GGGGGGGG::::G     M::::::M               M::::::Me::::::::e          m::::m   m::::m   m::::mb:::::bbbbbb::::::be::::::::e           r:::::r
-S::::::SSSSSS:::::SL::::::::::::::::::::::LR::::::R     R:::::R   GG:::::::::::::::G     M::::::M               M::::::M e::::::::eeeeeeee  m::::m   m::::m   m::::mb::::::::::::::::b  e::::::::eeeeeeee   r:::::r
-S:::::::::::::::SS L::::::::::::::::::::::LR::::::R     R:::::R     GGG::::::GGG:::G     M::::::M               M::::::M  ee:::::::::::::e  m::::m   m::::m   m::::mb:::::::::::::::b    ee:::::::::::::e   r:::::r
- SSSSSSSSSSSSSSS   LLLLLLLLLLLLLLLLLLLLLLLLRRRRRRRR     RRRRRRR        GGGGGG   GGGG     MMMMMMMM               MMMMMMMM    eeeeeeeeeeeeee  mmmmmm   mmmmmm   mmmmmmbbbbbbbbbbbbbbbb       eeeeeeeeeeeeee   rrrrrrr
-
-
-
-
+  _________.____   __________  ________
+ /   _____/|    |  \______   \/  _____/
+ \_____  \ |    |   |       _/   \  ___
+ /        \|    |___|    |   \    \_\  \
+/_______  /|_______ \____|_  /\______  /
+        \/         \/      \/        \/
+@Copyright Damian Schärli 2016
 
 
 

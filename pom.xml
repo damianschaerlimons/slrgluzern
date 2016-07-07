@@ -13,7 +13,7 @@
     <artifactId>slrg</artifactId>
     <version>0.0.5</version>
     <packaging>war</packaging>
-    <name>SLRG</name>
+    <name>Slrg</name>
 
     <prerequisites>
         <maven>3.0.0</maven>
@@ -375,12 +375,6 @@
             <version>${metrics-spark-reporter.version}</version>
         </dependency>
         <!-- jhipster-needle-maven-add-dependency -->
-        <dependency>
-            <groupId>org.apache.poi</groupId>
-            <artifactId>poi</artifactId>
-            <version>3.6</version>
-        </dependency>
-
     </dependencies>
     <build>
         <defaultGoal>spring-boot:run</defaultGoal>
