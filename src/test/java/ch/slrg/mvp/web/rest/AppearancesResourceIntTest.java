@@ -3,9 +3,6 @@ package ch.slrg.mvp.web.rest;
 import ch.slrg.mvp.SlrgApp;
 import ch.slrg.mvp.domain.Appearances;
 import ch.slrg.mvp.repository.AppearancesRepository;
-import ch.slrg.mvp.service.AppearancesService;
-import ch.slrg.mvp.web.rest.dto.AppearancesDTO;
-import ch.slrg.mvp.web.rest.mapper.AppearancesMapper;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -59,12 +56,6 @@ public class AppearancesResourceIntTest {
     private AppearancesRepository appearancesRepository;
 
     @Inject
-    private AppearancesMapper appearancesMapper;
-
-    @Inject
-    private AppearancesService appearancesService;
-
-    @Inject
     private MappingJackson2HttpMessageConverter jacksonMessageConverter;
 
     @Inject
@@ -78,8 +69,7 @@ public class AppearancesResourceIntTest {
     public void setup() {
         MockitoAnnotations.initMocks(this);
         AppearancesResource appearancesResource = new AppearancesResource();
-        ReflectionTestUtils.setField(appearancesResource, "appearancesService", appearancesService);
-        ReflectionTestUtils.setField(appearancesResource, "appearancesMapper", appearancesMapper);
+        ReflectionTestUtils.setField(appearancesResource, "appearancesRepository", appearancesRepository);
         this.restAppearancesMockMvc = MockMvcBuilders.standaloneSetup(appearancesResource)
             .setCustomArgumentResolvers(pageableArgumentResolver)
             .setMessageConverters(jacksonMessageConverter).build();
@@ -99,11 +89,10 @@ public class AppearancesResourceIntTest {
         int databaseSizeBeforeCreate = appearancesRepository.findAll().size();
 
         // Create the Appearances
-        AppearancesDTO appearancesDTO = appearancesMapper.appearancesToAppearancesDTO(appearances);
 
         restAppearancesMockMvc.perform(post("/api/appearances")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
-                .content(TestUtil.convertObjectToJsonBytes(appearancesDTO)))
+                .content(TestUtil.convertObjectToJsonBytes(appearances)))
                 .andExpect(status().isCreated());
 
         // Validate the Appearances in the database
@@ -168,11 +157,10 @@ public class AppearancesResourceIntTest {
         updatedAppearances.setName(UPDATED_NAME);
         updatedAppearances.setValid(UPDATED_VALID);
         updatedAppearances.setHours(UPDATED_HOURS);
-        AppearancesDTO appearancesDTO = appearancesMapper.appearancesToAppearancesDTO(updatedAppearances);
 
         restAppearancesMockMvc.perform(put("/api/appearances")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
-                .content(TestUtil.convertObjectToJsonBytes(appearancesDTO)))
+                .content(TestUtil.convertObjectToJsonBytes(updatedAppearances)))
                 .andExpect(status().isOk());
 
         // Validate the Appearances in the database

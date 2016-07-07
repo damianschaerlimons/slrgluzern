@@ -3,9 +3,6 @@ package ch.slrg.mvp.web.rest;
 import ch.slrg.mvp.SlrgApp;
 import ch.slrg.mvp.domain.Education;
 import ch.slrg.mvp.repository.EducationRepository;
-import ch.slrg.mvp.service.EducationService;
-import ch.slrg.mvp.web.rest.dto.EducationDTO;
-import ch.slrg.mvp.web.rest.mapper.EducationMapper;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -56,12 +53,6 @@ public class EducationResourceIntTest {
     private EducationRepository educationRepository;
 
     @Inject
-    private EducationMapper educationMapper;
-
-    @Inject
-    private EducationService educationService;
-
-    @Inject
     private MappingJackson2HttpMessageConverter jacksonMessageConverter;
 
     @Inject
@@ -75,8 +66,7 @@ public class EducationResourceIntTest {
     public void setup() {
         MockitoAnnotations.initMocks(this);
         EducationResource educationResource = new EducationResource();
-        ReflectionTestUtils.setField(educationResource, "educationService", educationService);
-        ReflectionTestUtils.setField(educationResource, "educationMapper", educationMapper);
+        ReflectionTestUtils.setField(educationResource, "educationRepository", educationRepository);
         this.restEducationMockMvc = MockMvcBuilders.standaloneSetup(educationResource)
             .setCustomArgumentResolvers(pageableArgumentResolver)
             .setMessageConverters(jacksonMessageConverter).build();
@@ -95,11 +85,10 @@ public class EducationResourceIntTest {
         int databaseSizeBeforeCreate = educationRepository.findAll().size();
 
         // Create the Education
-        EducationDTO educationDTO = educationMapper.educationToEducationDTO(education);
 
         restEducationMockMvc.perform(post("/api/educations")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
-                .content(TestUtil.convertObjectToJsonBytes(educationDTO)))
+                .content(TestUtil.convertObjectToJsonBytes(education)))
                 .andExpect(status().isCreated());
 
         // Validate the Education in the database
@@ -160,11 +149,10 @@ public class EducationResourceIntTest {
         updatedEducation.setId(education.getId());
         updatedEducation.setNote(UPDATED_NOTE);
         updatedEducation.setValid(UPDATED_VALID);
-        EducationDTO educationDTO = educationMapper.educationToEducationDTO(updatedEducation);
 
         restEducationMockMvc.perform(put("/api/educations")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
-                .content(TestUtil.convertObjectToJsonBytes(educationDTO)))
+                .content(TestUtil.convertObjectToJsonBytes(updatedEducation)))
                 .andExpect(status().isOk());
 
         // Validate the Education in the database

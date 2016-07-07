@@ -17,18 +17,18 @@
     <div class="table-responsive">
         <table class="jh-table table table-striped">
             <thead>
-                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.reset()">
-                    <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="name"><span translate="slrgApp.furtherEducation.name">Name</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="description"><span translate="slrgApp.furtherEducation.description">Description</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="niveau"><span translate="slrgApp.furtherEducation.niveau">Niveau</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="date"><span translate="slrgApp.furtherEducation.date">Date</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="memberName"><span translate="slrgApp.furtherEducation.member">Member</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="teacherName"><span translate="slrgApp.furtherEducation.teacher">Teacher</span> <span class="glyphicon glyphicon-sort"></span></th>
+                <tr>
+                    <th><span translate="global.field.id">ID</span></th>
+                    <th><span translate="slrgApp.furtherEducation.name">Name</span></th>
+                    <th><span translate="slrgApp.furtherEducation.description">Description</span></th>
+                    <th><span translate="slrgApp.furtherEducation.niveau">Niveau</span></th>
+                    <th><span translate="slrgApp.furtherEducation.date">Date</span></th>
+                    <th><span translate="slrgApp.furtherEducation.member">Member</span></th>
+                    <th><span translate="slrgApp.furtherEducation.teacher">Teacher</span></th>
                     <th></th>
                 </tr>
             </thead>
-            <tbody infinite-scroll="vm.loadPage(vm.page + 1)" infinite-scroll-disabled="vm.page >= vm.links['last']">
+            <tbody>
                 <tr ng-repeat="furtherEducation in vm.furtherEducations track by furtherEducation.id">
                     <td><a ui-sref="further-education-detail({id:furtherEducation.id})">{{furtherEducation.id}}</a></td>
                     <td>{{furtherEducation.name}}</td>
@@ -36,10 +36,10 @@
                     <td>{{furtherEducation.niveau}}</td>
                         <td>{{furtherEducation.date | date:'mediumDate'}}</td>
                     <td>
-                        <a ui-sref="member-detail({id:furtherEducation.memberId})">{{furtherEducation.memberName + ' ' + furtherEducation.memberLastname}}</a>
+                        <a ui-sref="member-detail({id:furtherEducation.member.id})">{{furtherEducation.member.name}}</a>
                     </td>
                     <td>
-                        <a ui-sref="member-detail({id:furtherEducation.teacherId})">{{furtherEducation.teacherName + ' ' + furtherEducation.teacherLastname}}</a>
+                        <a ui-sref="member-detail({id:furtherEducation.teacher.id})">{{furtherEducation.teacher.name}}</a>
                     </td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">

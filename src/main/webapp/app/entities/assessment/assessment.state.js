@@ -124,7 +124,7 @@
                         }]
                     }
                 }).result.then(function() {
-                    $state.go('assessment', null, { reload: true });
+                    $state.go('assessment', null, { reload: true, location: true });
                 }, function() {
                     $state.go('^');
                 });

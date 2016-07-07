@@ -32,8 +32,8 @@
         }
     ],
     "changelogDate": "20160623143148",
-    "dto": "mapstruct",
-    "service": "serviceClass",
+    "dto": "no",
+    "service": "no",
     "entityTableName": "further_education",
-    "pagination": "infinite-scroll"
+    "pagination": "no"
 }

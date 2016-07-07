@@ -35,50 +35,64 @@
                     return angular.toJson(data);
                 }
                  },
-                 'education': {
-                     method: 'GET',
-                     isArray: true,
-     //                transformRequest: function (data) {
-     //                                    data.birthday = DateUtils.convertLocalDateToServer(data.birthday);
-     //                                    return angular.toJson(data);
-     //                                },
-                     params: {
-                         type: 'educations'
-                     }
-                 },
-                  'appearances': {
-                      method: 'GET',
-                      isArray: true,
-      //                transformRequest: function (data) {
-      //                                    data.birthday = DateUtils.convertLocalDateToServer(data.birthday);
-      //                                    return angular.toJson(data);
-      //                                },
-                      params: {
-                          type: 'appearances'
-                      }
-                 },
-                   'furtheredu': {
-                       method: 'GET',
-                       isArray: true,
-       //                transformRequest: function (data) {
-       //                                    data.birthday = DateUtils.convertLocalDateToServer(data.birthday);
-       //                                    return angular.toJson(data);
-       //                                },
-                       params: {
-                           type: 'furtheredu'
-                       }
-                  },
-                 'assessment': {
-                     method: 'GET',
-                     isArray: true,
-     //                transformRequest: function (data) {
-     //                                    data.birthday = DateUtils.convertLocalDateToServer(data.birthday);
-     //                                    return angular.toJson(data);
-     //                                },
-                     params: {
-                         type: 'assessments'
-                     }
+             'education': {
+                 method: 'GET',
+                 isArray: true,
+ //                transformRequest: function (data) {
+ //                                    data.birthday = DateUtils.convertLocalDateToServer(data.birthday);
+ //                                    return angular.toJson(data);
+ //                                },
+                 params: {
+                     type: 'educations'
+                 }
+             },
+              'appearances': {
+                  method: 'GET',
+                  isArray: true,
+  //                transformRequest: function (data) {
+  //                                    data.birthday = DateUtils.convertLocalDateToServer(data.birthday);
+  //                                    return angular.toJson(data);
+  //                                },
+                  params: {
+                      type: 'appearances'
+                  }
+             },
+               'furtheredu': {
+                   method: 'GET',
+                   isArray: true,
+   //                transformRequest: function (data) {
+   //                                    data.birthday = DateUtils.convertLocalDateToServer(data.birthday);
+   //                                    return angular.toJson(data);
+   //                                },
+                   params: {
+                       type: 'furtheredu'
+                   }
+              },
+             'assessment': {
+                 method: 'GET',
+                 isArray: true,
+ //                transformRequest: function (data) {
+ //                                    data.birthday = DateUtils.convertLocalDateToServer(data.birthday);
+ //                                    return angular.toJson(data);
+ //                                },
+                 params: {
+                     type: 'assessments'
+                 }
+            },
+            'search' : {
+
+                method: 'GET',
+                isArray: true,
+                params: {
+                    type: 'search'
                 }
+            },
+            'export': {
+                method: 'GET',
+                params: {
+                    type: 'export'
+                }
+            }
 
         });
     }

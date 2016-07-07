@@ -34,10 +34,10 @@
                         <td>{{appearances.valid | date:'mediumDate'}}</td>
                     <td>{{appearances.hours}}</td>
                     <td>
-                        <a ui-sref="member-detail({id:appearances.memberId})">{{appearances.memberName +' '+ appearances.memberLastname}}</a>
+                        <a ui-sref="member-detail({id:appearances.member.id})">{{appearances.member.id}}</a>
                     </td>
                     <td>
-                        <a ui-sref="appearances-type-detail({id:appearances.appearancesTypeId})">{{appearances.appearancesTypeName}}</a>
+                        <a ui-sref="appearances-type-detail({id:appearances.appearancesType.id})">{{appearances.appearancesType.name}}</a>
                     </td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">

@@ -5,7 +5,9 @@
                 "title": "Members",
                 "createLabel": "Member erstellen",
                 "createOrEditLabel": "Member erstellen oder bearbeiten",
-                "search": "Suche nach Member"
+                "search": "Suche nach Member",
+                "export": "Export",
+                "exportModal": "Member Exportieren"
             },
             "created": "Member erstellt mit ID {{ param }}",
             "updated": "Member aktualisiert mit ID {{ param }}",

@@ -32,13 +32,13 @@
 
         <div class="form-group">
             <label translate="slrgApp.education.member" for="field_member">Member</label>
-            <select class="form-control" id="field_member" name="member" ng-model="vm.education.memberId" ng-options="member.id as member.name+' '+ member.lastname for member in vm.members"            >
+            <select class="form-control" id="field_member" name="member" ng-model="vm.education.member" ng-options="member as member.name + ' ' + member.lastname for member in vm.members track by member.id">
                 <option value=""></option>
             </select>
         </div>
         <div class="form-group">
             <label translate="slrgApp.education.educationtype" for="field_educationtype">Educationtype</label>
-            <select class="form-control" id="field_educationtype" name="educationtype" ng-model="vm.education.educationtypeId" ng-options="educationtype.id as educationtype.name for educationtype in vm.educationtypes"            >
+            <select class="form-control" id="field_educationtype" name="educationtype" ng-model="vm.education.educationtype" ng-options="educationtype as educationtype.name for educationtype in vm.educationtypes track by educationtype.id">
                 <option value=""></option>
             </select>
         </div>

@@ -3,9 +3,6 @@ package ch.slrg.mvp.web.rest;
 import ch.slrg.mvp.domain.Assessment;
 import ch.slrg.mvp.repository.AssessmentRepository;
 import ch.slrg.mvp.security.AuthoritiesConstants;
-import ch.slrg.mvp.service.AppearancesService;
-import ch.slrg.mvp.service.EducationService;
-import ch.slrg.mvp.service.FurtherEducationService;
 import ch.slrg.mvp.web.rest.dto.AppearancesDTO;
 import ch.slrg.mvp.web.rest.dto.EducationDTO;
 import ch.slrg.mvp.web.rest.dto.FurtherEducationDTO;
@@ -28,12 +25,11 @@ import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletResponse;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 /**
  * REST controller for managing Member.
@@ -250,5 +246,36 @@ public class MemberResource {
             .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
+    /**
+     * GET  /members/search :  get all further Educations by one member.
+     *
+     * @return the ResponseEntity with status 200 (OK)
+     */
+    @RequestMapping(value = "/members/search",
+        method = RequestMethod.GET,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    @Secured(AuthoritiesConstants.USER)
+    public ResponseEntity<List<MemberDTO>> searchMembers(@RequestParam(value="aquateam") boolean aquateam, @RequestParam(value="skipper") boolean skipper, @RequestParam(value="boatdriver") boolean boatdriver) {
+        log.debug("Search for aquateam: {}, skipper: {}, boatdriver: {}", aquateam, skipper, boatdriver );
+        List<Member> members = memberService.search(aquateam, skipper, boatdriver);
+        return new ResponseEntity<>(memberMapper.membersToMemberDTOs(members), HttpStatus.OK);
+    }
+
+
+    /**
+     * GET  /members/search :  get all further Educations by one member.
+     *
+     * @return the ResponseEntity with status 200 (OK)
+     */
+    @RequestMapping(value = "/members/export",
+        method = RequestMethod.GET,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    @Secured(AuthoritiesConstants.USER)
+    public void exportMembers(HttpServletResponse response, @RequestParam(value="aquateam")boolean aquateam, @RequestParam(value="skipper") boolean skipper, @RequestParam(value="boatdriver") boolean boatdriver) {
+        log.debug("Export for aquateam: {}, skipper: {}, boatdriver: {}", aquateam, skipper, boatdriver );
+        memberService.export(response, aquateam, skipper, boatdriver);
+    }
 
 }

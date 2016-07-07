@@ -90,49 +90,39 @@
     </div>
 
 <div class="">
-    <h3><span >Education</span></h3>
+    <h3><span >Education</span> <span class="glyphicon glyphicon-plus" ui-sref="member.education-new({id: vm.member.id})"></span></h3>
 
     <table class="jh-table table table-striped">
         <thead>
         <tr>
-            <th><span translate="global.field.id">ID</span></th>
+            <!--<th><span translate="global.field.id">ID</span></th>-->
             <th><span translate="slrgApp.education.note">Note</span></th>
             <th><span translate="slrgApp.education.valid">Valid</span></th>
             <th><span translate="slrgApp.education.educationtype">Educationtype</span></th>
-            <!--<th></th>-->
+            <th></th>
         </tr>
         </thead>
         <tbody>
         <tr ng-repeat="education in vm.educations track by education.id">
-            <td><a ui-sref="education-detail({id:education.id})">{{education.id}}</a></td>
+            <!--<td><a ui-sref="education-detail({id:education.id})">{{education.id}}</a></td>-->
             <td>{{education.note}}</td>
             <td>{{education.valid | date:'mediumDate'}}</td>
 
             <td>
                 <a ui-sref="educationtype-detail({id:education.educationtypeId})">{{education.educationtypeName}}</a>
             </td>
-            <!--<td class="text-right">-->
-            <!--<div class="btn-group flex-btn-group-container">-->
-            <!--<button type="submit"-->
-            <!--ui-sref="education-detail({id:education.id})"-->
-            <!--class="btn btn-info btn-sm">-->
-            <!--<span class="glyphicon glyphicon-eye-open"></span>-->
-            <!--<span class="hidden-xs hidden-sm" translate="entity.action.view"></span>-->
-            <!--</button>-->
-            <!--<button type="submit"-->
-            <!--ui-sref="education.edit({id:education.id})"-->
-            <!--class="btn btn-primary btn-sm">-->
-            <!--<span class="glyphicon glyphicon-pencil"></span>-->
-            <!--<span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>-->
-            <!--</button>-->
-            <!--<button type="submit"-->
-            <!--ui-sref="education.delete({id:education.id})"-->
-            <!--class="btn btn-danger btn-sm">-->
-            <!--<span class="glyphicon glyphicon-remove-circle"></span>-->
-            <!--<span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>-->
-            <!--</button>-->
-            <!--</div>-->
-            <!--</td>-->
+            <td>
+                <button type="submit"
+                        ui-sref="member.education-edit({id:vm.member.id, eduId: education.id})"
+                        class="btn btn-primary btn-sm">
+                    <span class="glyphicon glyphicon-pencil"></span>
+                </button>
+                <button type="submit"
+                        ui-sref="member.education-delete({id:vm.member.id, eduId: education.id})"
+                        class="btn btn-danger btn-sm">
+                    <span class="glyphicon glyphicon-remove-circle"></span>
+                </button>
+            </td>
         </tr>
         </tbody>
     </table>
@@ -140,22 +130,23 @@
 
 
     <div class="">
-        <h3><span >Appearances</span></h3>
+        <h3><span >Appearances</span><span class="glyphicon glyphicon-plus" ui-sref="member.appearances-new"></h3>
 
         <div class="table-responsive">
             <table class="jh-table table table-striped">
                 <thead>
                 <tr>
-                    <th><span translate="global.field.id">ID</span></th>
+                    <!--<th><span translate="global.field.id">ID</span></th>-->
                     <th><span translate="slrgApp.appearances.name">Name</span></th>
                     <th><span translate="slrgApp.appearances.valid">Valid</span></th>
                     <th><span translate="slrgApp.appearances.hours">Hours</span></th>
                     <th><span translate="slrgApp.appearances.appearancesType">Appearances Type</span></th>
+                    <th></th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr ng-repeat="appearances in vm.appearances track by appearances.id">
-                    <td><a ui-sref="appearances-detail({id:appearances.id})">{{appearances.id}}</a></td>
+                    <!--<td><a ui-sref="appearances-detail({id:appearances.id})">{{appearances.id}}</a></td>-->
                     <td>{{appearances.name}}</td>
                     <td>{{appearances.valid | date:'mediumDate'}}</td>
                     <td>{{appearances.hours}}</td>
@@ -163,7 +154,18 @@
                     <td>
                         <a ui-sref="appearances-type-detail({id:appearances.appearancesTypeId})">{{appearances.appearancesTypeName}}</a>
                     </td>
-
+                    <td>
+                        <button type="submit"
+                                ui-sref="member.appearances-edit({id:vm.member.id, appId: appearances.id})"
+                                class="btn btn-primary btn-sm">
+                            <span class="glyphicon glyphicon-pencil"></span>
+                        </button>
+                        <button type="submit"
+                                ui-sref="member.appearances-delete({id:vm.member.id, appId: appearances.id})"
+                                class="btn btn-danger btn-sm">
+                            <span class="glyphicon glyphicon-remove-circle"></span>
+                        </button>
+                    </td>
                 </tr>
                 </tbody>
             </table>
@@ -171,22 +173,24 @@
     </div>
 
     <div class="">
-        <h3><span >Weitere Ausbildungen</span></h3>
+        <h3><span translate="slrgApp.furtherEducation.home.title">Weitere Ausbildungen</span>
+            <span ui-sref="member.further-education-new({id: vm.member.id})" class="glyphicon glyphicon-plus"></span></h3>
         <div class="table-responsive">
             <table class="jh-table table table-striped">
                 <thead>
                 <tr>
-                    <th ><span translate="global.field.id">ID</span> </th>
+                    <!--<th ><span translate="global.field.id">ID</span> </th>-->
                     <th ><span translate="slrgApp.furtherEducation.name">Name</span> </th>
                     <th ><span translate="slrgApp.furtherEducation.description">Description</span> </th>
                     <th ><span translate="slrgApp.furtherEducation.niveau">Niveau</span> </th>
                     <th ><span translate="slrgApp.furtherEducation.date">Date</span> </th>
                     <th ><span translate="slrgApp.furtherEducation.teacher">Teacher</span> </th>
+                    <th></th>
                 </tr>
                 </thead>
-                <tbody infinite-scroll="vm.loadPage(vm.page + 1)" infinite-scroll-disabled="vm.page >= vm.links['last']">
+                <tbody>
                 <tr ng-repeat="furtherEducation in vm.furtherEducations track by furtherEducation.id">
-                    <td><a ui-sref="further-education-detail({id:furtherEducation.id})">{{furtherEducation.id}}</a></td>
+                    <!--<td><a ui-sref="further-education-detail({id:furtherEducation.id})">{{furtherEducation.id}}</a></td>-->
                     <td>{{furtherEducation.name}}</td>
                     <td>{{furtherEducation.description}}</td>
                     <td>{{furtherEducation.niveau}}</td>
@@ -195,29 +199,46 @@
                     <td>
                         <a ui-sref="member-detail({id:furtherEducation.teacherId})">{{furtherEducation.teacherName}}</a>
                     </td>
-
+                    <td>
+                    <button type="submit"
+                            ui-sref="member.further-education-edit({id:vm.member.id, eduId: furtherEducation.id})"
+                            class="btn btn-primary btn-sm">
+                        <span class="glyphicon glyphicon-pencil"></span>
+                    </button>
+                    <button type="submit"
+                            ui-sref="member.further-education-delete({id:vm.member.id, eduId: furtherEducation.id})"
+                            class="btn btn-danger btn-sm">
+                        <span class="glyphicon glyphicon-remove-circle"></span>
+                    </button>
+                    </td>
                 </tr>
                 </tbody>
             </table>
         </div>
 
         <div class="">
-            <h3><span>Statements</span></h3>
+            <h3><span translate="slrgApp.assessment.home.title">Statements</span>  <span ui-sref="member.newAssessment({id: vm.member.id})" class="glyphicon glyphicon-plus"></span></h3>
+            <!--<button class="btn btn-primary" ui-sref="member.newAssessment({id: vm.member.id})" >-->
+                <!--<span class="glyphicon glyphicon-plus"></span>-->
+                    <!--<span  translate="slrgApp.assessment.home.createLabel">-->
+                        <!--Create new Assessment-->
+                    <!--</span>-->
+            <!--</button>-->
             <div class="table-responsive">
             <table class="jh-table table table-striped">
                 <thead>
-                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
-                    <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="description"><span translate="slrgApp.assessment.description">Description</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="date"><span translate="slrgApp.assessment.date">Date</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="furthereducation"><span translate="slrgApp.assessment.furthereducation">Furthereducation</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="member.name"><span translate="slrgApp.assessment.member">Member</span> <span class="glyphicon glyphicon-sort"></span></th>
+                <tr ascending="vm.reverse" callback="vm.transition()">
+                    <!--<th ><span translate="global.field.id">ID</span></th>-->
+                    <th ><span translate="slrgApp.assessment.description">Description</span> </span></th>
+                    <th ><span translate="slrgApp.assessment.date">Date</span> </th>
+                    <th ><span translate="slrgApp.assessment.furthereducation">Furthereducation</span> </th>
+                    <th ><span translate="slrgApp.assessment.member">Member</span> </th>
                     <th></th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr ng-repeat="assessment in vm.assessments track by assessment.id">
-                    <td><a ui-sref="assessment-detail({id:assessment.id})">{{assessment.id}}</a></td>
+                    <!--<td><a ui-sref="assessment-detail({id:assessment.id})">{{assessment.id}}</a></td>-->
                     <td>{{assessment.description}}</td>
                     <td>{{assessment.date | date:'mediumDate'}}</td>
                     <td>{{assessment.furthereducation}}</td>
@@ -227,13 +248,13 @@
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"
-                                    ui-sref="assessment.edit({id:assessment.id})"
+                                    ui-sref="member.editAssessment({assId:assessment.id, id: vm.member.id})"
                                     class="btn btn-primary btn-sm">
                                 <span class="glyphicon glyphicon-pencil"></span>
                                 <span class="hidden-xs hidden-sm" ></span>
                             </button>
                             <button type="submit"
-                                    ui-sref="assessment.delete({id:assessment.id})"
+                                    ui-sref="member.deleteAssessment({assId:assessment.id, id: vm.member.id})"
                                     class="btn btn-danger btn-sm">
                                 <span class="glyphicon glyphicon-remove-circle"></span>
                                 <span class="hidden-xs hidden-sm"></span>

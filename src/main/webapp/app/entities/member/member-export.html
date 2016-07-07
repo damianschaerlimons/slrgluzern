@@ -1,0 +1,61 @@
+<form name="exportForm" role="form" novalidate ng-submit="vm.exportMembers()">
+<div class="container-fluid">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myMemberLabel" translate="slrgApp.member.home.exportModal">Export Members</h4>
+    </div>
+
+    <div class="modal-body">
+
+        <div class="form-group">
+            <label class="control-label" translate="slrgApp.member.aquateam" for="field_aquateam">Aquateam</label>
+            <input type="checkbox" class="form-control" name="aquateam" id="field_aquateam"
+                   ng-model="vm.member.aquateam"
+            />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="slrgApp.member.skipper" for="field_skipper">Skipper</label>
+            <input type="checkbox" class="form-control" name="skipper" id="field_skipper"
+                   ng-model="vm.member.skipper"
+            />
+        </div>
+
+        <div class="form-group">
+            <label class="control-label" translate="slrgApp.member.boatdriver" for="field_boatdriver">Boatdriver</label>
+            <input type="checkbox" class="form-control" name="boatdriver" id="field_boatdriver"
+                   ng-model="vm.member.boatdriver"
+            />
+        </div>
+        <!--<div class="form-group">-->
+            <!--<label class="control-label" translate="slrgApp.member.rescue" for="field_rescue">Rescue</label>-->
+            <!--<input type="checkbox" class="form-control" name="rescue" id="field_rescue"-->
+                   <!--ng-model="vm.member.rescue"-->
+            <!--/>-->
+        <!--</div>-->
+
+        <!--<div class="form-group">-->
+            <!--<label class="control-label" translate="slrgApp.member.ownboat" for="field_ownboat">Ownboat</label>-->
+            <!--<input type="checkbox" class="form-control" name="ownboat" id="field_ownboat"-->
+                   <!--ng-model="vm.member.ownboat"-->
+            <!--/>-->
+        <!--</div>-->
+
+        <div>Anzahl gefundene Einträge: {{vm.members.length}}</div>
+
+    </div>
+
+    <div class="modal-footer">
+
+        <button type="button" class="btn btn-default" ng-click="vm.search()">
+            <span class="glyphicon"></span>&nbsp;<span translate="entity.action.search">Search</span>
+        </button>
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.export">Export</span>
+        </button>
+    </div>
+</div>
+</form>

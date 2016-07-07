@@ -32,10 +32,10 @@
                     <td>{{education.note}}</td>
                         <td>{{education.valid | date:'mediumDate'}}</td>
                     <td>
-                        <a ui-sref="member-detail({id:education.memberId})">{{education.memberName +' '+ education.memberLastname}}</a>
+                        <a ui-sref="member-detail({id:education.member.id})">{{education.member.id}}</a>
                     </td>
                     <td>
-                        <a ui-sref="educationtype-detail({id:education.educationtypeId})">{{education.educationtypeName}}</a>
+                        <a ui-sref="educationtype-detail({id:education.educationtype.id})">{{education.educationtype.name}}</a>
                     </td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">

@@ -24,8 +24,8 @@
         }
     ],
     "changelogDate": "20160622052517",
-    "dto": "mapstruct",
-    "service": "serviceClass",
+    "dto": "no",
+    "service": "no",
     "entityTableName": "education",
     "pagination": "no"
 }

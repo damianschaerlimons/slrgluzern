@@ -2,10 +2,8 @@ package ch.slrg.mvp.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
 import ch.slrg.mvp.domain.Education;
-import ch.slrg.mvp.service.EducationService;
+import ch.slrg.mvp.repository.EducationRepository;
 import ch.slrg.mvp.web.rest.util.HeaderUtil;
-import ch.slrg.mvp.web.rest.dto.EducationDTO;
-import ch.slrg.mvp.web.rest.mapper.EducationMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpHeaders;
@@ -17,10 +15,8 @@ import org.springframework.web.bind.annotation.*;
 import javax.inject.Inject;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 /**
  * REST controller for managing Education.
@@ -32,28 +28,25 @@ public class EducationResource {
     private final Logger log = LoggerFactory.getLogger(EducationResource.class);
         
     @Inject
-    private EducationService educationService;
-    
-    @Inject
-    private EducationMapper educationMapper;
+    private EducationRepository educationRepository;
     
     /**
      * POST  /educations : Create a new education.
      *
-     * @param educationDTO the educationDTO to create
-     * @return the ResponseEntity with status 201 (Created) and with body the new educationDTO, or with status 400 (Bad Request) if the education has already an ID
+     * @param education the education to create
+     * @return the ResponseEntity with status 201 (Created) and with body the new education, or with status 400 (Bad Request) if the education has already an ID
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
     @RequestMapping(value = "/educations",
         method = RequestMethod.POST,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    public ResponseEntity<EducationDTO> createEducation(@RequestBody EducationDTO educationDTO) throws URISyntaxException {
-        log.debug("REST request to save Education : {}", educationDTO);
-        if (educationDTO.getId() != null) {
+    public ResponseEntity<Education> createEducation(@RequestBody Education education) throws URISyntaxException {
+        log.debug("REST request to save Education : {}", education);
+        if (education.getId() != null) {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("education", "idexists", "A new education cannot already have an ID")).body(null);
         }
-        EducationDTO result = educationService.save(educationDTO);
+        Education result = educationRepository.save(education);
         return ResponseEntity.created(new URI("/api/educations/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert("education", result.getId().toString()))
             .body(result);
@@ -62,24 +55,24 @@ public class EducationResource {
     /**
      * PUT  /educations : Updates an existing education.
      *
-     * @param educationDTO the educationDTO to update
-     * @return the ResponseEntity with status 200 (OK) and with body the updated educationDTO,
-     * or with status 400 (Bad Request) if the educationDTO is not valid,
-     * or with status 500 (Internal Server Error) if the educationDTO couldnt be updated
+     * @param education the education to update
+     * @return the ResponseEntity with status 200 (OK) and with body the updated education,
+     * or with status 400 (Bad Request) if the education is not valid,
+     * or with status 500 (Internal Server Error) if the education couldnt be updated
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
     @RequestMapping(value = "/educations",
         method = RequestMethod.PUT,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    public ResponseEntity<EducationDTO> updateEducation(@RequestBody EducationDTO educationDTO) throws URISyntaxException {
-        log.debug("REST request to update Education : {}", educationDTO);
-        if (educationDTO.getId() == null) {
-            return createEducation(educationDTO);
+    public ResponseEntity<Education> updateEducation(@RequestBody Education education) throws URISyntaxException {
+        log.debug("REST request to update Education : {}", education);
+        if (education.getId() == null) {
+            return createEducation(education);
         }
-        EducationDTO result = educationService.save(educationDTO);
+        Education result = educationRepository.save(education);
         return ResponseEntity.ok()
-            .headers(HeaderUtil.createEntityUpdateAlert("education", educationDTO.getId().toString()))
+            .headers(HeaderUtil.createEntityUpdateAlert("education", education.getId().toString()))
             .body(result);
     }
 
@@ -92,25 +85,26 @@ public class EducationResource {
         method = RequestMethod.GET,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    public List<EducationDTO> getAllEducations() {
+    public List<Education> getAllEducations() {
         log.debug("REST request to get all Educations");
-        return educationService.findAll();
+        List<Education> educations = educationRepository.findAll();
+        return educations;
     }
 
     /**
      * GET  /educations/:id : get the "id" education.
      *
-     * @param id the id of the educationDTO to retrieve
-     * @return the ResponseEntity with status 200 (OK) and with body the educationDTO, or with status 404 (Not Found)
+     * @param id the id of the education to retrieve
+     * @return the ResponseEntity with status 200 (OK) and with body the education, or with status 404 (Not Found)
      */
     @RequestMapping(value = "/educations/{id}",
         method = RequestMethod.GET,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    public ResponseEntity<EducationDTO> getEducation(@PathVariable Long id) {
+    public ResponseEntity<Education> getEducation(@PathVariable Long id) {
         log.debug("REST request to get Education : {}", id);
-        EducationDTO educationDTO = educationService.findOne(id);
-        return Optional.ofNullable(educationDTO)
+        Education education = educationRepository.findOne(id);
+        return Optional.ofNullable(education)
             .map(result -> new ResponseEntity<>(
                 result,
                 HttpStatus.OK))
@@ -120,7 +114,7 @@ public class EducationResource {
     /**
      * DELETE  /educations/:id : delete the "id" education.
      *
-     * @param id the id of the educationDTO to delete
+     * @param id the id of the education to delete
      * @return the ResponseEntity with status 200 (OK)
      */
     @RequestMapping(value = "/educations/{id}",
@@ -129,7 +123,7 @@ public class EducationResource {
     @Timed
     public ResponseEntity<Void> deleteEducation(@PathVariable Long id) {
         log.debug("REST request to delete Education : {}", id);
-        educationService.delete(id);
+        educationRepository.delete(id);
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert("education", id.toString())).build();
     }
 

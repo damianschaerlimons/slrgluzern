@@ -38,7 +38,7 @@
 
         <div class="form-group">
             <label translate="slrgApp.assessment.member" for="field_member">Member</label>
-            <select class="form-control" id="field_member" name="member" ng-model="vm.assessment.member" ng-options="member as member.name + ' ' + member.lastname for member in vm.members track by member.id">
+            <select class="form-control" id="field_member" name="member" ng-selected="vm.assessment.member" ng-model="vm.assessment.member" ng-options="member as member.name + ' ' + member.lastname for member in vm.members track by member.id">
                 <option value=""></option>
             </select>
         </div>

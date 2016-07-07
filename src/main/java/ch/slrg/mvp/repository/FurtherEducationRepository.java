@@ -2,7 +2,6 @@ package ch.slrg.mvp.repository;
 
 import ch.slrg.mvp.domain.FurtherEducation;
 
-import ch.slrg.mvp.web.rest.dto.FurtherEducationDTO;
 import org.springframework.data.jpa.repository.*;
 
 import java.util.List;
@@ -14,4 +13,5 @@ import java.util.List;
 public interface FurtherEducationRepository extends JpaRepository<FurtherEducation,Long> {
 
     List<FurtherEducation> findFurtherEducationByMemberId(Long id);
+
 }

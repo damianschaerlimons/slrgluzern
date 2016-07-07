@@ -14,11 +14,11 @@
         </dd>
         <dt><span translate="slrgApp.education.member">Member</span></dt>
         <dd>
-            <a ui-sref="member-detail({id:vm.education.memberId})">{{vm.education.memberName +' ' + vm.education.memberLastname}}</a>
+            <a ui-sref="member-detail({id:vm.education.member.id})">{{vm.education.member.id}}</a>
         </dd>
         <dt><span translate="slrgApp.education.educationtype">Educationtype</span></dt>
         <dd>
-            <a ui-sref="educationtype-detail({id:vm.education.educationtypeId})">{{vm.education.educationtypeName}}</a>
+            <a ui-sref="educationtype-detail({id:vm.education.educationtype.id})">{{vm.education.educationtype.name}}</a>
         </dd>
     </dl>
 

@@ -3,9 +3,6 @@ package ch.slrg.mvp.web.rest;
 import ch.slrg.mvp.SlrgApp;
 import ch.slrg.mvp.domain.FurtherEducation;
 import ch.slrg.mvp.repository.FurtherEducationRepository;
-import ch.slrg.mvp.service.FurtherEducationService;
-import ch.slrg.mvp.web.rest.dto.FurtherEducationDTO;
-import ch.slrg.mvp.web.rest.mapper.FurtherEducationMapper;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -60,12 +57,6 @@ public class FurtherEducationResourceIntTest {
     private FurtherEducationRepository furtherEducationRepository;
 
     @Inject
-    private FurtherEducationMapper furtherEducationMapper;
-
-    @Inject
-    private FurtherEducationService furtherEducationService;
-
-    @Inject
     private MappingJackson2HttpMessageConverter jacksonMessageConverter;
 
     @Inject
@@ -79,8 +70,7 @@ public class FurtherEducationResourceIntTest {
     public void setup() {
         MockitoAnnotations.initMocks(this);
         FurtherEducationResource furtherEducationResource = new FurtherEducationResource();
-        ReflectionTestUtils.setField(furtherEducationResource, "furtherEducationService", furtherEducationService);
-        ReflectionTestUtils.setField(furtherEducationResource, "furtherEducationMapper", furtherEducationMapper);
+        ReflectionTestUtils.setField(furtherEducationResource, "furtherEducationRepository", furtherEducationRepository);
         this.restFurtherEducationMockMvc = MockMvcBuilders.standaloneSetup(furtherEducationResource)
             .setCustomArgumentResolvers(pageableArgumentResolver)
             .setMessageConverters(jacksonMessageConverter).build();
@@ -101,11 +91,10 @@ public class FurtherEducationResourceIntTest {
         int databaseSizeBeforeCreate = furtherEducationRepository.findAll().size();
 
         // Create the FurtherEducation
-        FurtherEducationDTO furtherEducationDTO = furtherEducationMapper.furtherEducationToFurtherEducationDTO(furtherEducation);
 
         restFurtherEducationMockMvc.perform(post("/api/further-educations")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
-                .content(TestUtil.convertObjectToJsonBytes(furtherEducationDTO)))
+                .content(TestUtil.convertObjectToJsonBytes(furtherEducation)))
                 .andExpect(status().isCreated());
 
         // Validate the FurtherEducation in the database
@@ -174,11 +163,10 @@ public class FurtherEducationResourceIntTest {
         updatedFurtherEducation.setDescription(UPDATED_DESCRIPTION);
         updatedFurtherEducation.setNiveau(UPDATED_NIVEAU);
         updatedFurtherEducation.setDate(UPDATED_DATE);
-        FurtherEducationDTO furtherEducationDTO = furtherEducationMapper.furtherEducationToFurtherEducationDTO(updatedFurtherEducation);
 
         restFurtherEducationMockMvc.perform(put("/api/further-educations")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
-                .content(TestUtil.convertObjectToJsonBytes(furtherEducationDTO)))
+                .content(TestUtil.convertObjectToJsonBytes(updatedFurtherEducation)))
                 .andExpect(status().isOk());
 
         // Validate the FurtherEducation in the database

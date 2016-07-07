@@ -38,13 +38,13 @@
 
         <div class="form-group">
             <label translate="slrgApp.appearances.member" for="field_member">Member</label>
-            <select class="form-control" id="field_member" name="member" ng-model="vm.appearances.memberId" ng-options="member.id as member.name +' '+ member.lastname for member in vm.members"            >
+            <select class="form-control" id="field_member" name="member" ng-model="vm.appearances.member" ng-options="member as member.name +' ' + member.lastname for member in vm.members track by member.id">
                 <option value=""></option>
             </select>
         </div>
         <div class="form-group">
             <label translate="slrgApp.appearances.appearancesType" for="field_appearancesType">Appearances Type</label>
-            <select class="form-control" id="field_appearancesType" name="appearancesType" ng-model="vm.appearances.appearancesTypeId" ng-options="appearancesType.id as appearancesType.name for appearancesType in vm.appearancestypes"            >
+            <select class="form-control" id="field_appearancesType" name="appearancesType" ng-model="vm.appearances.appearancesType" ng-options="appearancesType as appearancesType.name for appearancesType in vm.appearancestypes track by appearancesType.id">
                 <option value=""></option>
             </select>
         </div>

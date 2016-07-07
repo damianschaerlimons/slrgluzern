@@ -2,9 +2,9 @@
     "slrgApp": {
         "assessment" : {
             "home": {
-                "title": "Assessments",
-                "createLabel": "Assessment erstellen",
-                "createOrEditLabel": "Assessment erstellen oder bearbeiten",
+                "title": "Aussagen",
+                "createLabel": "Aussage erstellen",
+                "createOrEditLabel": "Aussage erstellen oder bearbeiten",
                 "search": "Suche nach Assessment"
             },
             "created": "Assessment erstellt mit ID {{ param }}",
