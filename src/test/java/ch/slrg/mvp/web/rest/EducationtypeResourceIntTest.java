@@ -3,9 +3,6 @@ package ch.slrg.mvp.web.rest;
 import ch.slrg.mvp.SlrgApp;
 import ch.slrg.mvp.domain.Educationtype;
 import ch.slrg.mvp.repository.EducationtypeRepository;
-import ch.slrg.mvp.service.EducationtypeService;
-import ch.slrg.mvp.web.rest.dto.EducationtypeDTO;
-import ch.slrg.mvp.web.rest.mapper.EducationtypeMapper;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -53,12 +50,6 @@ public class EducationtypeResourceIntTest {
     private EducationtypeRepository educationtypeRepository;
 
     @Inject
-    private EducationtypeMapper educationtypeMapper;
-
-    @Inject
-    private EducationtypeService educationtypeService;
-
-    @Inject
     private MappingJackson2HttpMessageConverter jacksonMessageConverter;
 
     @Inject
@@ -72,8 +63,7 @@ public class EducationtypeResourceIntTest {
     public void setup() {
         MockitoAnnotations.initMocks(this);
         EducationtypeResource educationtypeResource = new EducationtypeResource();
-        ReflectionTestUtils.setField(educationtypeResource, "educationtypeService", educationtypeService);
-        ReflectionTestUtils.setField(educationtypeResource, "educationtypeMapper", educationtypeMapper);
+        ReflectionTestUtils.setField(educationtypeResource, "educationtypeRepository", educationtypeRepository);
         this.restEducationtypeMockMvc = MockMvcBuilders.standaloneSetup(educationtypeResource)
             .setCustomArgumentResolvers(pageableArgumentResolver)
             .setMessageConverters(jacksonMessageConverter).build();
@@ -92,11 +82,10 @@ public class EducationtypeResourceIntTest {
         int databaseSizeBeforeCreate = educationtypeRepository.findAll().size();
 
         // Create the Educationtype
-        EducationtypeDTO educationtypeDTO = educationtypeMapper.educationtypeToEducationtypeDTO(educationtype);
 
         restEducationtypeMockMvc.perform(post("/api/educationtypes")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
-                .content(TestUtil.convertObjectToJsonBytes(educationtypeDTO)))
+                .content(TestUtil.convertObjectToJsonBytes(educationtype)))
                 .andExpect(status().isCreated());
 
         // Validate the Educationtype in the database
@@ -157,11 +146,10 @@ public class EducationtypeResourceIntTest {
         updatedEducationtype.setId(educationtype.getId());
         updatedEducationtype.setName(UPDATED_NAME);
         updatedEducationtype.setDescription(UPDATED_DESCRIPTION);
-        EducationtypeDTO educationtypeDTO = educationtypeMapper.educationtypeToEducationtypeDTO(updatedEducationtype);
 
         restEducationtypeMockMvc.perform(put("/api/educationtypes")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
-                .content(TestUtil.convertObjectToJsonBytes(educationtypeDTO)))
+                .content(TestUtil.convertObjectToJsonBytes(updatedEducationtype)))
                 .andExpect(status().isOk());
 
         // Validate the Educationtype in the database

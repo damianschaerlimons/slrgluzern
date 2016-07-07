@@ -9,7 +9,7 @@
 
     function MemberController ($scope, $state, Member, ParseLinks, AlertService) {
         var vm = this;
-        
+
         vm.members = [];
         vm.loadPage = loadPage;
         vm.page = 0;
@@ -19,8 +19,18 @@
         vm.predicate = 'id';
         vm.reset = reset;
         vm.reverse = true;
+        vm.filter = {
+            text: '',
+            aqua: false,
+            skipper: false,
+            boat: false,
+            rescue: false,
+            full: true
+        };
+        vm.download = download;
 
         loadAll();
+
 
         function loadAll () {
             Member.query({
@@ -41,10 +51,18 @@
                 for (var i = 0; i < data.length; i++) {
                     vm.members.push(data[i]);
                 }
+                console.log(vm.members);
             }
             function onError(error) {
                 AlertService.error(error.data.message);
             }
+        }
+
+        function download () {
+            var blob = new Blob([document.getElementById('exportable').innerHTML], {
+                type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=utf-8"
+            });
+            saveAs(blob, "Report.xls");
         }
 
         function reset () {

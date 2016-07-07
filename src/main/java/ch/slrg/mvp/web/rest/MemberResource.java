@@ -1,13 +1,12 @@
 package ch.slrg.mvp.web.rest;
 
-import ch.slrg.mvp.domain.Assessment;
+import ch.slrg.mvp.domain.*;
+import ch.slrg.mvp.repository.AppearancesRepository;
 import ch.slrg.mvp.repository.AssessmentRepository;
+import ch.slrg.mvp.repository.EducationRepository;
+import ch.slrg.mvp.repository.FurtherEducationRepository;
 import ch.slrg.mvp.security.AuthoritiesConstants;
-import ch.slrg.mvp.web.rest.dto.AppearancesDTO;
-import ch.slrg.mvp.web.rest.dto.EducationDTO;
-import ch.slrg.mvp.web.rest.dto.FurtherEducationDTO;
 import com.codahale.metrics.annotation.Timed;
-import ch.slrg.mvp.domain.Member;
 import ch.slrg.mvp.service.MemberService;
 import ch.slrg.mvp.web.rest.util.HeaderUtil;
 import ch.slrg.mvp.web.rest.util.PaginationUtil;
@@ -47,13 +46,13 @@ public class MemberResource {
     private MemberMapper memberMapper;
 
     @Inject
-    private EducationService educationService;
+    private EducationRepository educationRepository;
 
     @Inject
-    private AppearancesService appearancesService;
+    private AppearancesRepository appearancesRepository;
 
     @Inject
-    private FurtherEducationService furtherEducationService;
+    private FurtherEducationRepository furtherEducationRepository;
 
     @Inject
     private AssessmentRepository assessmentRepository;
@@ -171,9 +170,9 @@ public class MemberResource {
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
     @Secured(AuthoritiesConstants.USER)
-    public ResponseEntity<List<EducationDTO>> getListEducation(@PathVariable Long id) {
+    public ResponseEntity<List<Education>> getListEducation(@PathVariable Long id) {
         log.debug("REST request to find Member Education : {}", id);
-        List<EducationDTO> dtos = educationService.findEducationsByMember(id);
+        List<Education> dtos = educationRepository.findEducationByMemberId(id);
         return Optional.ofNullable(dtos)
             .map(result -> new ResponseEntity<>(
                 result,
@@ -193,9 +192,9 @@ public class MemberResource {
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
     @Secured(AuthoritiesConstants.USER)
-    public ResponseEntity<List<AppearancesDTO>> getListAppearances(@PathVariable Long id) {
+    public ResponseEntity<List<Appearances>> getListAppearances(@PathVariable Long id) {
         log.debug("REST request to find Member Appearances : {}", id);
-        List<AppearancesDTO> dtos = appearancesService.findAppearancesByMemberId(id);
+        List<Appearances> dtos = appearancesRepository.findAppearancesByMemberId(id);
         return Optional.ofNullable(dtos)
             .map(result -> new ResponseEntity<>(
                 result,
@@ -215,9 +214,9 @@ public class MemberResource {
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
     @Secured(AuthoritiesConstants.USER)
-    public ResponseEntity<List<FurtherEducationDTO>> getListFurtherEdu(@PathVariable Long id) {
+    public ResponseEntity<List<FurtherEducation>> getListFurtherEdu(@PathVariable Long id) {
         log.debug("REST request to find Member Appearances : {}", id);
-        List<FurtherEducationDTO> dtos = furtherEducationService.findFurtherEducationByMemberId(id);
+        List<FurtherEducation> dtos = furtherEducationRepository.findFurtherEducationByMemberId(id);
         return Optional.ofNullable(dtos)
             .map(result -> new ResponseEntity<>(
                 result,

@@ -81,5 +81,5 @@
     "dto": "mapstruct",
     "service": "serviceClass",
     "entityTableName": "member",
-    "pagination": "infinite-scroll"
+    "pagination": "no"
 }

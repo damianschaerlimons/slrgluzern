@@ -3,7 +3,7 @@
     <jhi-alert></jhi-alert>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-xs-4 no-padding-left">
+            <div class="col-xs-4 col-md-4 no-padding-left">
                 <button class="btn btn-primary" ui-sref="member.new" >
                     <span class="glyphicon glyphicon-plus"></span>
                     <span  translate="slrgApp.member.home.createLabel">
@@ -12,18 +12,61 @@
                 </button>
             </div>
 
-            <div class="col-xs-4 no-padding-right">
-                <button class="btn btn-primary" ui-sref="member.export" >
-                    <span class="glyphicon glyphicon-plus"></span>
+        </div>
+        <div class="row">
+            <hr>
+                <div class="col-md-2">
+                    <label class=""for="field_all">All</label>
+                    <input type="checkbox" class="" name="aquateam" id="field_all"
+                           ng-model="vm.filter.full"
+                    />
+                </div>
+                <div class="col-md-2" >
+                    <label class="" translate="slrgApp.member.aquateam" for="field_aquateam">Aquateam</label>
+                    <input type="checkbox" class="" name="aquateam" id="field_aquateam"
+                           ng-model="vm.filter.aqua"  ng-disabled="vm.filter.full"
+                    />
+                </div>
+                <div class="col-md-2">
+                    <label class="" translate="slrgApp.member.skipper" for="field_skipper">Skipper</label>
+                    <input type="checkbox" class="" name="skipper" id="field_skipper"
+                           ng-model="vm.filter.skipper" ng-disabled="vm.filter.full"
+                    />
+                </div>
+
+                <div class="col-md-2" >
+                    <label class="" translate="slrgApp.member.boatdriver" for="field_boatdriver">Boatdriver</label>
+                    <input type="checkbox" class="" name="boatdriver" id="field_boatdriver"
+                           ng-model="vm.filter.boat" ng-disabled="vm.filter.full"
+                    />
+                </div>
+
+                <div class="col-md-2" >
+                    <label class="" translate="slrgApp.member.rescue" for="field_rescue">Rescue</label>
+                    <input type="checkbox" class="" name="rescue" id="field_rescue"
+                           ng-model="vm.filter.rescue" ng-disabled="vm.filter.full"
+                    />
+                </div>
+
+            <div class=" col-md-2">
+                <div class="row">
+                    <!--<span class="col-md-4">Search: </span>-->
+                    <input class="col-md-8 form-control" ng-model="vm.filter.text"/>
+                </div>
+            </div>
+
+            <div class=" col-md-2" >
+                <button class="btn btn-primary" ng-click="vm.download()" >
                     <span  translate="slrgApp.member.home.export">
                         Export
                     </span>
                 </button>
             </div>
         </div>
+        </div>
     </div>
     <br/>
-    <div class="table-responsive">
+    <div class="table-responsive" id="exportable">
         <table class="jh-table table table-striped">
             <thead>
                 <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.reset()">
@@ -48,8 +91,9 @@
                 </tr>
             </thead>
             <tbody infinite-scroll="vm.loadPage(vm.page + 1)" infinite-scroll-disabled="vm.page >= vm.links['last']">
-                <tr ng-repeat="member in vm.members track by member.id">
-                    <td><a ui-sref="member-detail({id:member.id})">{{member.id}}</a></td>
+                <!--<tr ng-repeat="member in vm.members | filter:vm.filter.text:strict | filter:{aquateam: vm.filter.aqua} | filter:{skipper: vm.filter.skipper} | filter:{boatdriver: vm.filter.boat} | filter:{rescue: vm.filter.rescue} track by member.id  ">-->
+                <tr ng-repeat="member in vm.members | filter:vm.filter.text:strict | selection:vm.filter.full:vm.filter.aqua:vm.filter.boat:vm.filter.rescue:vm.filter.skipper track by member.id  ">
+                <td><a ui-sref="member-detail({id:member.id})">{{member.id}}</a></td>
                     <td>{{member.name}}</td>
                     <td>{{member.lastname}}</td>
                         <!--<td>{{member.birthday | date:'mediumDate'}}</td>-->
