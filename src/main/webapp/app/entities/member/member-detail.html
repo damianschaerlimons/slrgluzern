@@ -106,7 +106,7 @@
         <tr ng-repeat="education in vm.educations track by education.id">
             <!--<td><a ui-sref="education-detail({id:education.id})">{{education.id}}</a></td>-->
             <td>{{education.note}}</td>
-            <td>{{education.valid | date:'mediumDate'}}</td>
+            <td ng-class="{'valid-ok': vm.checkDate(education.valid), 'valid-optional': vm.checkEqual(education.valid), 'valid-critical': !vm.checkDate(education.valid)}">{{education.valid | date:'mediumDate'}}</td>
 
             <td>{{education.educationtype.name}}
             </td>

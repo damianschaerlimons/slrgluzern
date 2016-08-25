@@ -29,11 +29,8 @@
             if(year > dateYear){
                 return false;
             }
-
-
             return null;
         }
-
 
         function checkEqual(date) {
                     var now = new Date();
@@ -44,8 +41,6 @@
                     if(year == dateYear){
                         return true;
                     }
-
-
                     return false;
                 }
 

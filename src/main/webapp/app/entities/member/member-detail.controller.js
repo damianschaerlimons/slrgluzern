@@ -11,6 +11,9 @@
         var vm = this;
 
         vm.member = entity;
+        vm.checkDate = checkDate;
+                vm.checkEqual= checkEqual;
+
 
         var unsubscribe = $rootScope.$on('slrgApp:memberUpdate', function(event, result) {
             vm.member = result;
@@ -34,6 +37,34 @@
            vm.assessments = data;
          });
 
+
+        function checkDate(date) {
+            var now = new Date();
+            var year = now.getFullYear();
+
+            var dateYear = new Date(date).getFullYear();
+
+            if(year < dateYear){
+                return true;
+            }
+
+            if(year > dateYear){
+                return false;
+            }
+            return null;
+        }
+
+        function checkEqual(date) {
+                    var now = new Date();
+                    var year = now.getFullYear();
+
+                    var dateYear = new Date(date).getFullYear();
+
+                    if(year == dateYear){
+                        return true;
+                    }
+                    return false;
+                }
 
         $scope.$on('$destroy', unsubscribe);
     }
