@@ -2,19 +2,19 @@
     "slrgApp": {
         "section" : {
             "home": {
-                "title": "Sections",
-                "createLabel": "Section erstellen",
-                "createOrEditLabel": "Section erstellen oder bearbeiten",
-                "search": "Suche nach Section"
+                "title": "Sektion",
+                "createLabel": "Sektion erstellen",
+                "createOrEditLabel": "Sektion erstellen oder bearbeiten",
+                "search": "Suche nach Sektion"
             },
-            "created": "Section erstellt mit ID {{ param }}",
-            "updated": "Section aktualisiert mit ID {{ param }}",
-            "deleted": "Section gelöscht mit ID {{ param }}",
+            "created": "Sektion erstellt mit ID {{ param }}",
+            "updated": "Sektion aktualisiert mit ID {{ param }}",
+            "deleted": "Sektion gelöscht mit ID {{ param }}",
             "delete": {
-                "question": "Soll Section {{ id }} wirklich dauerhaft gelöscht werden?"
+                "question": "Soll Sektion {{ id }} wirklich dauerhaft gelöscht werden?"
             },
             "detail": {
-                "title": "Section"
+                "title": "Sektion"
             },
             "name": "Name"
         }

@@ -2,39 +2,39 @@
     "slrgApp": {
         "member" : {
             "home": {
-                "title": "Members",
-                "createLabel": "Member erstellen",
-                "createOrEditLabel": "Member erstellen oder bearbeiten",
-                "search": "Suche nach Member",
+                "title": "Mitglieder",
+                "createLabel": "Mitglied erstellen",
+                "createOrEditLabel": "Mitglied erstellen oder bearbeiten",
+                "search": "Suche nach Mitglieder",
                 "export": "Export",
-                "exportModal": "Member Exportieren"
+                "exportModal": "Mitglied Exportieren"
             },
-            "created": "Member erstellt mit ID {{ param }}",
-            "updated": "Member aktualisiert mit ID {{ param }}",
-            "deleted": "Member gelöscht mit ID {{ param }}",
+            "created": "Mitglied erstellt mit ID {{ param }}",
+            "updated": "Mitglied aktualisiert mit ID {{ param }}",
+            "deleted": "Mitglied gelöscht mit ID {{ param }}",
             "delete": {
-                "question": "Soll Member {{ id }} wirklich dauerhaft gelöscht werden?"
+                "question": "Soll Mitglied {{ id }} wirklich dauerhaft gelöscht werden?"
             },
             "detail": {
-                "title": "Member"
+                "title": "Mitglied"
             },
-            "name": "Name",
-            "lastname": "Lastname",
-            "birthday": "Birthday",
-            "brevetnr": "Brevetnr",
-            "adress": "Adress",
-            "plz": "Plz",
-            "place": "Place",
+            "name": "Vorname",
+            "lastname": "Nachname",
+            "birthday": "geb. Datum",
+            "brevetnr": "Brevet-NR",
+            "adress": "Adresse",
+            "plz": "PLZ",
+            "place": "Ort",
             "aquateam": "Aquateam",
             "skipper": "Skipper",
-            "boatdriver": "Boatdriver",
-            "rescue": "Rescue",
-            "phone": "Phone",
-            "email": "Email",
-            "ownboat": "Ownboat",
+            "boatdriver": "Bootsführer",
+            "rescue": "Rettungsschwimmer",
+            "phone": "Telefonnummer",
+            "email": "E-Mail",
+            "ownboat": "Bootsbesitzer",
             "skipperlevel": "Skipperlevel",
-            "membertype": "Membertype",
-            "section": "Section"
+            "membertype": "Mitglied Art",
+            "section": "Sektion"
         }
     }
 }

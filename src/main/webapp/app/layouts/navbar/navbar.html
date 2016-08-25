@@ -38,7 +38,7 @@
                                 <span translate="global.menu.entities.member">Member</span>
                             </a>
                         </li>
-                        <li ui-sref-active="active" >
+                        <li ui-sref-active="active" ng-class="{active: vm.$state.includes('admin')}">
                             <a ui-sref="membertype" ng-click="vm.collapseNavbar()">
                                 <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
                                 <span translate="global.menu.entities.membertype">Membertype</span>

@@ -20,7 +20,7 @@
                 <tr>
                     <th><span translate="global.field.id">ID</span></th>
                     <th><span translate="slrgApp.education.note">Note</span></th>
-                    <th><span translate="slrgApp.education.valid">Valid</span></th>
+                    <th><span  translate="slrgApp.education.valid">Valid</span></th>
                     <th><span translate="slrgApp.education.member">Member</span></th>
                     <th><span translate="slrgApp.education.educationtype">Educationtype</span></th>
                     <th></th>
@@ -30,7 +30,7 @@
                 <tr ng-repeat="education in vm.educations track by education.id">
                     <td><a ui-sref="education-detail({id:education.id})">{{education.id}}</a></td>
                     <td>{{education.note}}</td>
-                        <td>{{education.valid | date:'mediumDate'}}</td>
+                        <td ng-class="{'valid-ok': vm.checkDate(education.valid), 'valid-optional': vm.checkEqual(education.valid), 'valid-critical': !vm.checkDate(education.valid)}">{{education.valid | date:'mediumDate'}}</td>
                     <td>
                         <a ui-sref="member-detail({id:education.member.id})">{{education.member.id}}</a>
                     </td>

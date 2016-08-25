@@ -7,18 +7,18 @@
                 "createOrEditLabel": "Aussage erstellen oder bearbeiten",
                 "search": "Suche nach Assessment"
             },
-            "created": "Assessment erstellt mit ID {{ param }}",
-            "updated": "Assessment aktualisiert mit ID {{ param }}",
-            "deleted": "Assessment gelöscht mit ID {{ param }}",
+            "created": "Aussagen erstellt mit ID {{ param }}",
+            "updated": "Aussagen aktualisiert mit ID {{ param }}",
+            "deleted": "Aussagen gelöscht mit ID {{ param }}",
             "delete": {
-                "question": "Soll Assessment {{ id }} wirklich dauerhaft gelöscht werden?"
+                "question": "Soll Aussagen {{ id }} wirklich dauerhaft gelöscht werden?"
             },
             "detail": {
-                "title": "Assessment"
+                "title": "Aussagen"
             },
             "description": "Description",
             "date": "Date",
-            "furthereducation": "Furthereducation",
+            "furthereducation": "Weiterbildungen",
             "member": "Member"
         }
     }

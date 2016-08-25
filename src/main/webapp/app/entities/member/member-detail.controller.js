@@ -22,6 +22,7 @@
         });
 
         Member.appearances({id: entity.id}, function(data){
+         console.log(data);
            vm.appearances = data;
         });
 

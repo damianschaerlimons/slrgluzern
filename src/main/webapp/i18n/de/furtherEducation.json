@@ -20,8 +20,8 @@
             "description": "Description",
             "niveau": "Niveau",
             "date": "Date",
-            "member": "Member",
-            "teacher": "Teacher"
+            "member": "Mitglied",
+            "teacher": "Ausbildungsleiter"
         }
     }
 }

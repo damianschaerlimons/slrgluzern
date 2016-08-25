@@ -90,7 +90,7 @@
     </div>
 
 <div class="">
-    <h3><span >Education</span> <span class="glyphicon glyphicon-plus" ui-sref="member.education-new({id: vm.member.id})"></span></h3>
+    <h3><span translate="slrgApp.education.home.title">Educations</span> <span class="glyphicon glyphicon-plus" ui-sref="member.education-new({id: vm.member.id})"></span></h3>
 
     <table class="jh-table table table-striped">
         <thead>
@@ -108,8 +108,7 @@
             <td>{{education.note}}</td>
             <td>{{education.valid | date:'mediumDate'}}</td>
 
-            <td>
-                <a ui-sref="educationtype-detail({id:education.educationtypeId})">{{education.educationtypeName}}</a>
+            <td>{{education.educationtype.name}}
             </td>
             <td>
                 <button type="submit"
@@ -130,7 +129,7 @@
 
 
     <div class="">
-        <h3><span >Appearances</span><span class="glyphicon glyphicon-plus" ui-sref="member.appearances-new({id: vm.member.id})"></h3>
+        <h3><span translate="slrgApp.appearances.home.title">Appearances</span><span class="glyphicon glyphicon-plus" ui-sref="member.appearances-new({id: vm.member.id})"></h3>
 
         <div class="table-responsive">
             <table class="jh-table table table-striped">
@@ -152,7 +151,7 @@
                     <td>{{appearances.hours}}</td>
 
                     <td>
-                        <a ui-sref="appearances-type-detail({id:appearances.appearancesTypeId})">{{appearances.appearancesTypeName}}</a>
+                        {{appearances.appearancesType.name}}
                     </td>
                     <td>
                         <button type="submit"

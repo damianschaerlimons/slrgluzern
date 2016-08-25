@@ -2,19 +2,19 @@
     "slrgApp": {
         "educationtype" : {
             "home": {
-                "title": "Educationtypes",
-                "createLabel": "Educationtype erstellen",
-                "createOrEditLabel": "Educationtype erstellen oder bearbeiten",
-                "search": "Suche nach Educationtype"
+                "title": "Ausbildungsarten",
+                "createLabel": "Ausbildungsarten erstellen",
+                "createOrEditLabel": "Ausbildungsarten erstellen oder bearbeiten",
+                "search": "Suche nach Ausbildungsarten"
             },
-            "created": "Educationtype erstellt mit ID {{ param }}",
-            "updated": "Educationtype aktualisiert mit ID {{ param }}",
-            "deleted": "Educationtype gelöscht mit ID {{ param }}",
+            "created": "Ausbildungsarten erstellt mit ID {{ param }}",
+            "updated": "Ausbildungsarten aktualisiert mit ID {{ param }}",
+            "deleted": "Ausbildungsarten gelöscht mit ID {{ param }}",
             "delete": {
-                "question": "Soll Educationtype {{ id }} wirklich dauerhaft gelöscht werden?"
+                "question": "Soll Ausbildungsarten {{ id }} wirklich dauerhaft gelöscht werden?"
             },
             "detail": {
-                "title": "Educationtype"
+                "title": "Ausbildungsarten"
             },
             "name": "Name",
             "description": "Description"

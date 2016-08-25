@@ -4,6 +4,6 @@
     angular
         .module('slrgApp')
         .constant('VERSION', "0.0.5")
-        .constant('DEBUG_INFO_ENABLED', false)
+        .constant('DEBUG_INFO_ENABLED', true)
 ;
 })();

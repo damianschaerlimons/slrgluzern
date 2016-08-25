@@ -2,19 +2,19 @@
     "slrgApp": {
         "appearancesType" : {
             "home": {
-                "title": "Appearances Types",
-                "createLabel": "Appearances Type erstellen",
-                "createOrEditLabel": "Appearances Type erstellen oder bearbeiten",
-                "search": "Suche nach Appearances Type"
+                "title": "Einsatzart",
+                "createLabel": "Einsatzart Type erstellen",
+                "createOrEditLabel": "Einsatzart erstellen oder bearbeiten",
+                "search": "Suche nach Einsatzart"
             },
-            "created": "Appearances Type erstellt mit ID {{ param }}",
-            "updated": "Appearances Type aktualisiert mit ID {{ param }}",
-            "deleted": "Appearances Type gelöscht mit ID {{ param }}",
+            "created": "Einsatzart erstellt mit ID {{ param }}",
+            "updated": "Einsatzart aktualisiert mit ID {{ param }}",
+            "deleted": "Einsatzart gelöscht mit ID {{ param }}",
             "delete": {
-                "question": "Soll Appearances Type {{ id }} wirklich dauerhaft gelöscht werden?"
+                "question": "Soll Einsatzart {{ id }} wirklich dauerhaft gelöscht werden?"
             },
             "detail": {
-                "title": "Appearances Type"
+                "title": "Einsatzart"
             },
             "name": "Name"
         }
